@@ -141,6 +141,7 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                             15.0, 12.0, 0.0, 11.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Image.asset(
                               'assets/images/Group_16.png',
@@ -148,9 +149,10 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                               height: 65.0,
                               fit: BoxFit.cover,
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 0.0, 0.0, 0.0),
+                            Container(
+                              width: 172.0,
+                              height: 100.0,
+                              decoration: BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -180,15 +182,11 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                                 ],
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 0.0, 10.0, 0.0),
-                              child: Icon(
-                                Icons.play_arrow,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                size: 24.0,
-                              ),
+                            Icon(
+                              Icons.play_arrow,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: 24.0,
                             ),
                           ],
                         ),
