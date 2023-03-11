@@ -29,7 +29,7 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(milliseconds: 2000));
+      await Future.delayed(const Duration(milliseconds: 4000));
 
       context.pushNamed(
         'home_page_logged_in',
@@ -150,7 +150,7 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  19.0, 0.0, 0.0, 0.0),
+                                  15.0, 0.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -182,7 +182,7 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  21.0, 0.0, 30.0, 0.0),
+                                  15.0, 0.0, 10.0, 0.0),
                               child: Icon(
                                 Icons.play_arrow,
                                 color: FlutterFlowTheme.of(context)
