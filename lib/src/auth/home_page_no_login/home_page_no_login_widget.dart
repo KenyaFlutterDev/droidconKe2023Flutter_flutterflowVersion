@@ -1,7 +1,9 @@
-import '/components/organized_by_panel_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/src/widgets/organisedby_component/organisedby_component_widget.dart';
+import '/src/widgets/sponsors_component/sponsors_component_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_no_login_model.dart';
@@ -24,6 +26,22 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageNoLoginModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await Future.delayed(const Duration(milliseconds: 2000));
+
+      context.pushNamed(
+        'home_page_logged_in',
+        extra: <String, dynamic>{
+          kTransitionInfoKey: TransitionInfo(
+            hasTransition: true,
+            transitionType: PageTransitionType.rightToLeft,
+            duration: Duration(milliseconds: 3000),
+          ),
+        },
+      );
+    });
   }
 
   @override
@@ -101,8 +119,8 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                         borderRadius: BorderRadius.circular(12.0),
                         child: Image.asset(
                           'assets/images/Group_12.png',
-                          width: 100.0,
-                          height: 100.0,
+                          width: double.infinity,
+                          height: double.infinity,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -177,92 +195,15 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 203.2,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF5F5F5),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 23.0, 0.0, 0.0),
-                            child: Text(
-                              'Sponsors',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color: Color(0xFF000CEB),
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 23.0, 0.0, 0.0),
-                            child: Image.asset(
-                              'assets/images/1920px-Google_2015_logo.svg.png',
-                              width: 116.0,
-                              height: 39.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 31.84, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Image.asset(
-                                  'assets/images/Andela-logo-landscape-blue.png',
-                                  width: 79.8,
-                                  height: 23.3,
-                                  fit: BoxFit.cover,
-                                ),
-                                Image.asset(
-                                  'assets/images/hover_logo.png',
-                                  width: 79.9,
-                                  height: 24.6,
-                                  fit: BoxFit.cover,
-                                ),
-                                Image.asset(
-                                  'assets/images/jetbrains.png',
-                                  width: 22.2,
-                                  height: 24.1,
-                                  fit: BoxFit.cover,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                  wrapWithModel(
+                    model: _model.sponsorsComponentModel,
+                    updateCallback: () => setState(() {}),
+                    child: SponsorsComponentWidget(),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 29.79, 0.0, 0.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 228.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF5F5F5),
-                        borderRadius: BorderRadius.circular(16.0),
-                      ),
-                      child: wrapWithModel(
-                        model: _model.organizedByPanelModel,
-                        updateCallback: () => setState(() {}),
-                        child: OrganizedByPanelWidget(),
-                      ),
-                    ),
+                  wrapWithModel(
+                    model: _model.organisedbyComponentModel,
+                    updateCallback: () => setState(() {}),
+                    child: OrganisedbyComponentWidget(),
                   ),
                 ],
               ),

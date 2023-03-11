@@ -45,6 +45,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'home_page_no_login',
           path: '/homePageNoLogin',
           builder: (context, params) => HomePageNoLoginWidget(),
+        ),
+        FFRoute(
+          name: 'home_page_logged_in',
+          path: '/homePageLoggedIn',
+          builder: (context, params) => HomePageLoggedInWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
