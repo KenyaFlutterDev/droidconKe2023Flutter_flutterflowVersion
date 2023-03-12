@@ -48,45 +48,44 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  wrapWithModel(
-                    model: _model.sessionHeaderModel,
-                    updateCallback: () => setState(() {}),
-                    child: SessionHeaderWidget(),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 32.5, 0.0, 21.52),
-                    child: Container(
-                      width: double.infinity,
-                      height: 51.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                wrapWithModel(
+                  model: _model.sessionHeaderModel,
+                  updateCallback: () => setState(() {}),
+                  child: SessionHeaderWidget(),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 32.5, 0.0, 21.52),
+                  child: Container(
+                    width: double.infinity,
+                    height: 51.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(12.0),
                     ),
                   ),
-                  Divider(
-                    thickness: 1.0,
+                ),
+                Divider(
+                  thickness: 1.0,
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 18.88, 0.0, 0.0),
+                  child: Text(
+                    'My Sessions',
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: Color(0xFF000CEB),
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 18.88, 0.0, 0.0),
-                    child: Text(
-                      'My Sessions',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Poppins',
-                            color: Color(0xFF000CEB),
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                  ),
-                  Padding(
+                ),
+                Expanded(
+                  child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Builder(
@@ -335,8 +334,8 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                       },
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
