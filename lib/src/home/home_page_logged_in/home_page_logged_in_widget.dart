@@ -42,6 +42,8 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Colors.white,
