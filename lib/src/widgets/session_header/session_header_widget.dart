@@ -41,9 +41,7 @@ class _SessionHeaderWidgetState extends State<SessionHeaderWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondaryBackground,
-      ),
+      decoration: BoxDecoration(),
       child: wrapWithModel(
         model: _model.sesionHeaderComponentModel,
         updateCallback: () => setState(() {}),
