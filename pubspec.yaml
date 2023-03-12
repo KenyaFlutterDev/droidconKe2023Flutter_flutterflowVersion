@@ -27,6 +27,7 @@ dependencies:
     sdk: flutter
   auto_size_text: 3.0.0
   cached_network_image: 3.2.1
+  floating_bottom_navigation_bar: 1.5.2
   flutter_animate: 1.0.0
   flutter_cache_manager: 3.3.0
   font_awesome_flutter: 10.1.0
@@ -48,9 +49,18 @@ dependencies:
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
+  flutter_launcher_icons: 0.9.3
 
   flutter_test:
     sdk: flutter
+
+
+flutter_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: 'assets/images/app_launcher_icon.png'
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
