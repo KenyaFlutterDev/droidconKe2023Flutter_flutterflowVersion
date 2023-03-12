@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/src/widgets/session_header/session_header_widget.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -294,19 +293,40 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                       ),
                                     ),
                                   ),
-                                  Align(
-                                    alignment: AlignmentDirectional(-0.8, 0.0),
-                                    child: Container(
-                                      width: 24.0,
-                                      height: 24.0,
-                                      child: custom_widgets.ProgressLink(
-                                        width: 24.0,
-                                        height: 24.0,
-                                        index: mySessionsDetailsIndex,
-                                        images: FFAppState().listLinks.toList(),
+                                  if (mySessionsDetailsIndex % 2 == 0
+                                      ? true
+                                      : false)
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(-0.8, 0.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 7.4, 0.0, 12.23),
+                                        child: Image.asset(
+                                          'assets/images/green.png',
+                                          width: 24.0,
+                                          height: 24.0,
+                                          fit: BoxFit.contain,
+                                        ),
                                       ),
                                     ),
-                                  ),
+                                  if (!(mySessionsDetailsIndex % 2 == 0)
+                                      ? true
+                                      : false)
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(-0.8, 0.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 7.4, 0.0, 12.23),
+                                        child: Image.asset(
+                                          'assets/images/orange.png',
+                                          width: 24.0,
+                                          height: 24.0,
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ),
                                 ],
                               ),
                             );
