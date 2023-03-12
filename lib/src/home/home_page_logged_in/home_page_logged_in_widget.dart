@@ -7,6 +7,7 @@ import '/src/widgets/speakers_component/speakers_component_widget.dart';
 import '/src/widgets/sponsors_component/sponsors_component_widget.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_logged_in_model.dart';
@@ -56,15 +57,10 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
-                    child: InkWell(
-                      onTap: () async {
-                        context.pushNamed('about_page');
-                      },
-                      child: wrapWithModel(
-                        model: _model.headerComponentModel,
-                        updateCallback: () => setState(() {}),
-                        child: HeaderComponentWidget(),
-                      ),
+                    child: wrapWithModel(
+                      model: _model.headerComponentModel,
+                      updateCallback: () => setState(() {}),
+                      child: HeaderComponentWidget(),
                     ),
                   ),
                   Padding(

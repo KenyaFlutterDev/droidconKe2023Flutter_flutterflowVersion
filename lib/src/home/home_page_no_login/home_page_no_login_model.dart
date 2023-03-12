@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/src/widgets/organisedby_component/organisedby_component_widget.dart';
 import '/src/widgets/sponsors_component/sponsors_component_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';

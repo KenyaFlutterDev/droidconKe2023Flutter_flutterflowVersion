@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/src/widgets/organisedby_component/organisedby_component_widget.dart';
 import '/src/widgets/sponsors_component/sponsors_component_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -27,22 +26,6 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageNoLoginModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(milliseconds: 4000));
-
-      context.pushNamed(
-        'home_page_logged_in',
-        extra: <String, dynamic>{
-          kTransitionInfoKey: TransitionInfo(
-            hasTransition: true,
-            transitionType: PageTransitionType.rightToLeft,
-            duration: Duration(milliseconds: 3000),
-          ),
-        },
-      );
-    });
   }
 
   @override
@@ -127,82 +110,75 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
-                    child: InkWell(
-                      onTap: () async {
-                        context.pushNamed('feeds_page');
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        height: 88.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).secondaryColor,
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 12.0, 0.0, 11.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                'assets/images/Group_16.png',
-                                width: 118.0,
-                                height: 65.0,
-                                fit: BoxFit.cover,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    19.0, 0.0, 0.0, 0.0),
-                                child: Container(
-                                  width: 149.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Call for Speakers',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              fontSize: 16.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
-                                      Text(
-                                        'Apply to be a speaker',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
+                    child: Container(
+                      width: double.infinity,
+                      height: 88.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            15.0, 12.0, 0.0, 11.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              'assets/images/Group_16.png',
+                              width: 118.0,
+                              height: 65.0,
+                              fit: BoxFit.cover,
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  19.0, 0.0, 0.0, 0.0),
+                              child: Container(
+                                width: 149.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Call for Speakers',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                    Text(
+                                      'Apply to be a speaker',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            fontSize: 10.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    21.0, 0.0, 0.0, 0.0),
-                                child: Icon(
-                                  Icons.play_arrow,
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                  size: 24.0,
-                                ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  21.0, 0.0, 0.0, 0.0),
+                              child: Icon(
+                                Icons.play_arrow,
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                size: 24.0,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
