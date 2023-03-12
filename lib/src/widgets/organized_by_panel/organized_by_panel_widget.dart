@@ -59,7 +59,7 @@ class _OrganizedByPanelWidgetState extends State<OrganizedByPanelWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/images/Layer_2.png',
+                'assets/images/android254.png',
                 width: 29.4,
                 height: 38.4,
                 fit: BoxFit.cover,
@@ -89,7 +89,7 @@ class _OrganizedByPanelWidgetState extends State<OrganizedByPanelWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/images/Layer_2.png',
+                'assets/images/appslab.png',
                 width: 25.2,
                 height: 36.5,
                 fit: BoxFit.cover,
@@ -104,7 +104,7 @@ class _OrganizedByPanelWidgetState extends State<OrganizedByPanelWidget> {
                 ),
               ),
               Image.asset(
-                'assets/images/Layer_2.png',
+                'assets/images/tiskoks.png',
                 width: 39.2,
                 height: 36.7,
                 fit: BoxFit.cover,
