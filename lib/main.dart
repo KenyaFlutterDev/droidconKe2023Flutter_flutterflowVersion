@@ -98,8 +98,8 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'home_page_logged_in': HomePageLoggedInWidget(),
       'feeds_page': FeedsPageWidget(),
-      'about_page': AboutPageWidget(),
       'sessions_page': SessionsPageWidget(),
+      'about_page': AboutPageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
     return Scaffold(
@@ -134,19 +134,19 @@ class _NavBarPageState extends State<NavBarPage> {
             tooltip: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.star_sharp,
-              size: 24.0,
-            ),
-            label: 'About',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
             icon: FaIcon(
               FontAwesomeIcons.solidClock,
               size: 24.0,
             ),
             label: 'Sessions',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.star_sharp,
+              size: 24.0,
+            ),
+            label: 'About',
             tooltip: '',
           )
         ],
