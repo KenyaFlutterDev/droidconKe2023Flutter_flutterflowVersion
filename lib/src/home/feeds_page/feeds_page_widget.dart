@@ -49,23 +49,22 @@ class _FeedsPageWidgetState extends State<FeedsPageWidget> {
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
-                    child: wrapWithModel(
-                      model: _model.headerComponentModel,
-                      updateCallback: () => setState(() {}),
-                      child: HeaderComponentWidget(),
-                    ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
+                  child: wrapWithModel(
+                    model: _model.headerComponentModel,
+                    updateCallback: () => setState(() {}),
+                    child: HeaderComponentWidget(),
                   ),
-                  Divider(
-                    thickness: 1.0,
-                  ),
-                  Builder(
+                ),
+                Divider(
+                  thickness: 1.0,
+                ),
+                Expanded(
+                  child: Builder(
                     builder: (context) {
                       final feedsList = List.generate(
                               random_data.randomInteger(6, 7),
@@ -88,8 +87,8 @@ class _FeedsPageWidgetState extends State<FeedsPageWidget> {
                       );
                     },
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
