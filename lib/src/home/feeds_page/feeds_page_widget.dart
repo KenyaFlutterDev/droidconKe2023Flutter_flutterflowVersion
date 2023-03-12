@@ -54,15 +54,10 @@ class _FeedsPageWidgetState extends State<FeedsPageWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
-                    child: InkWell(
-                      onTap: () async {
-                        context.pushNamed('about_page');
-                      },
-                      child: wrapWithModel(
-                        model: _model.headerComponentModel,
-                        updateCallback: () => setState(() {}),
-                        child: HeaderComponentWidget(),
-                      ),
+                    child: wrapWithModel(
+                      model: _model.headerComponentModel,
+                      updateCallback: () => setState(() {}),
+                      child: HeaderComponentWidget(),
                     ),
                   ),
                   Divider(

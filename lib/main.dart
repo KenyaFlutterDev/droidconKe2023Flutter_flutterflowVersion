@@ -7,7 +7,6 @@ import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
@@ -84,7 +83,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'home_page_no_login';
+  String _currentPageName = 'home_page_logged_in';
   late Widget? _currentPage;
 
   @override
@@ -97,127 +96,58 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'home_page_no_login': HomePageNoLoginWidget(),
+      'home_page_logged_in': HomePageLoggedInWidget(),
       'feeds_page': FeedsPageWidget(),
-      'sessions_page': SessionsPageWidget(),
       'about_page': AboutPageWidget(),
+      'sessions_page': SessionsPageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
     return Scaffold(
       body: _currentPage ?? tabs[_currentPageName],
-      extendBody: true,
-      bottomNavigationBar: FloatingNavbar(
+      bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (i) => setState(() {
           _currentPage = null;
           _currentPageName = tabs.keys.toList()[i];
         }),
         backgroundColor: Colors.white,
-        selectedItemColor: Color(0x00000000),
+        selectedItemColor: FlutterFlowTheme.of(context).primaryColor,
         unselectedItemColor: FlutterFlowTheme.of(context).primaryText,
-        selectedBackgroundColor: Color(0x00000000),
-        borderRadius: 8.0,
-        itemBorderRadius: 8.0,
-        margin: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-        width: double.infinity,
-        elevation: 0.0,
-        items: [
-          FloatingNavbarItem(
-            customWidget: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  FontAwesomeIcons.home,
-                  color: currentIndex == 0
-                      ? Color(0x00000000)
-                      : FlutterFlowTheme.of(context).primaryText,
-                  size: 24.0,
-                ),
-                Text(
-                  'Home',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 0
-                        ? Color(0x00000000)
-                        : FlutterFlowTheme.of(context).primaryText,
-                    fontSize: 11.0,
-                  ),
-                ),
-              ],
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: FaIcon(
+              FontAwesomeIcons.home,
+              size: 24.0,
             ),
+            label: 'Home',
+            tooltip: '',
           ),
-          FloatingNavbarItem(
-            customWidget: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  FontAwesomeIcons.solidBell,
-                  color: currentIndex == 1
-                      ? Color(0x00000000)
-                      : FlutterFlowTheme.of(context).primaryText,
-                  size: 24.0,
-                ),
-                Text(
-                  'Feed',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 1
-                        ? Color(0x00000000)
-                        : FlutterFlowTheme.of(context).primaryText,
-                    fontSize: 11.0,
-                  ),
-                ),
-              ],
+          BottomNavigationBarItem(
+            icon: FaIcon(
+              FontAwesomeIcons.solidBell,
+              size: 24.0,
             ),
+            label: 'Feed',
+            tooltip: '',
           ),
-          FloatingNavbarItem(
-            customWidget: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  FontAwesomeIcons.solidClock,
-                  color: currentIndex == 2
-                      ? Color(0x00000000)
-                      : FlutterFlowTheme.of(context).primaryText,
-                  size: 24.0,
-                ),
-                Text(
-                  'Sessions',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 2
-                        ? Color(0x00000000)
-                        : FlutterFlowTheme.of(context).primaryText,
-                    fontSize: 11.0,
-                  ),
-                ),
-              ],
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.star_sharp,
+              size: 24.0,
             ),
+            label: 'About',
+            tooltip: '',
           ),
-          FloatingNavbarItem(
-            customWidget: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.star_sharp,
-                  color: currentIndex == 3
-                      ? Color(0x00000000)
-                      : FlutterFlowTheme.of(context).primaryText,
-                  size: 24.0,
-                ),
-                Text(
-                  'About',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 3
-                        ? Color(0x00000000)
-                        : FlutterFlowTheme.of(context).primaryText,
-                    fontSize: 11.0,
-                  ),
-                ),
-              ],
+          BottomNavigationBarItem(
+            icon: FaIcon(
+              FontAwesomeIcons.solidClock,
+              size: 24.0,
             ),
+            label: 'Sessions',
+            tooltip: '',
           )
         ],
       ),

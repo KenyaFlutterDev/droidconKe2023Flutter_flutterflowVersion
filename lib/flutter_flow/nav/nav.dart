@@ -44,14 +44,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'home_page_no_login',
           path: '/homePageNoLogin',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'home_page_no_login')
-              : HomePageNoLoginWidget(),
+          builder: (context, params) => HomePageNoLoginWidget(),
         ),
         FFRoute(
           name: 'home_page_logged_in',
           path: '/homePageLoggedIn',
-          builder: (context, params) => HomePageLoggedInWidget(),
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'home_page_logged_in')
+              : HomePageLoggedInWidget(),
         ),
         FFRoute(
           name: 'feeds_page',
