@@ -38,6 +38,8 @@ class _SponsorsComponentWidgetState extends State<SponsorsComponentWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
       child: Container(

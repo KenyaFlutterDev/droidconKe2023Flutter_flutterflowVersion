@@ -38,6 +38,8 @@ class _OrganizersComponentWidgetState extends State<OrganizersComponentWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
       child: Column(

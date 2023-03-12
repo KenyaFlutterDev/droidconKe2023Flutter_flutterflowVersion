@@ -39,6 +39,8 @@ class _FeedsPageWidgetState extends State<FeedsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Colors.white,

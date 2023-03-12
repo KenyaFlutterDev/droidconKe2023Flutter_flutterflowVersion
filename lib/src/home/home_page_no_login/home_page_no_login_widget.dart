@@ -38,6 +38,8 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Colors.white,

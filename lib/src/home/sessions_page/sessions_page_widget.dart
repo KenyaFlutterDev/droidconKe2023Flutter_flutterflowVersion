@@ -1,10 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/src/widgets/header_component/header_component_widget.dart';
-import '/src/widgets/organisedby_component/organisedby_component_widget.dart';
-import '/src/widgets/sessions_card_component/sessions_card_component_widget.dart';
-import '/src/widgets/speakers_component/speakers_component_widget.dart';
-import '/src/widgets/sponsors_component/sponsors_component_widget.dart';
+import '/src/widgets/session_header/session_header_widget.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -42,9 +39,11 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFF5F5F5),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
@@ -53,242 +52,268 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
-                    child: wrapWithModel(
-                      model: _model.headerComponentModel,
-                      updateCallback: () => setState(() {}),
-                      child: HeaderComponentWidget(),
-                    ),
+                  wrapWithModel(
+                    model: _model.sessionHeaderModel,
+                    updateCallback: () => setState(() {}),
+                    child: SessionHeaderWidget(),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 32.5, 0.0, 21.52),
                     child: Container(
-                      width: 372.0,
-                      height: 175.0,
+                      width: double.infinity,
+                      height: 51.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12.0),
-                        child: Image.asset(
-                          'assets/images/Screenshot_2023-03-11_at_22.11.30.png',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
                     ),
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 76.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 12.0, 0.0, 11.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Sessions',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText1
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                  Divider(
+                    thickness: 1.0,
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 18.88, 0.0, 0.0),
+                    child: Text(
+                      'My Sessions',
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Poppins',
+                            color: Color(0xFF000CEB),
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
                           ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 8.0, 0.0),
-                                child: Text(
-                                  'View All',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: Color(0xFF000CEB),
-                                        fontSize: 12.0,
-                                      ),
-                                ),
-                              ),
-                              Container(
-                                width: 35.0,
-                                height: 22.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFE3E4FD),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Text(
-                                    '+45',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          color: Color(0xFF000CEB),
-                                          fontSize: 10.0,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
                     ),
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 215.2,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Builder(
                       builder: (context) {
-                        final sessionaList = List.generate(
-                                random_data.randomInteger(5, 6),
-                                (index) => random_data.randomInteger(0, 10))
-                            .toList()
-                            .take(6)
-                            .toList();
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: sessionaList.length,
-                          itemBuilder: (context, sessionaListIndex) {
-                            final sessionaListItem =
-                                sessionaList[sessionaListIndex];
-                            return SessionsCardComponentWidget(
-                              key: Key(
-                                  'Keyvw1_${sessionaListIndex}_of_${sessionaList.length}'),
-                            );
-                          },
-                        );
-                      },
-                    ),
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 76.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 12.0, 0.0, 11.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Speakers',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText1
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 8.0, 0.0),
-                                child: Text(
-                                  'View All',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: Color(0xFF000CEB),
-                                        fontSize: 12.0,
-                                      ),
-                                ),
-                              ),
-                              Container(
-                                width: 35.0,
-                                height: 22.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFE3E4FD),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Text(
-                                    '+45',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          color: Color(0xFF000CEB),
-                                          fontSize: 10.0,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 100.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
-                    child: Builder(
-                      builder: (context) {
-                        final usersList = List.generate(
-                                random_data.randomInteger(7, 8),
-                                (index) => random_data.randomInteger(0, 10))
+                        final mySessionsDetails = List.generate(
+                                random_data.randomInteger(0, 7),
+                                (index) => random_data.randomInteger(5, 7))
                             .toList()
                             .take(20)
                             .toList();
                         return ListView.builder(
                           padding: EdgeInsets.zero,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: usersList.length,
-                          itemBuilder: (context, usersListIndex) {
-                            final usersListItem = usersList[usersListIndex];
-                            return SpeakersComponentWidget(
-                              key: Key(
-                                  'Key1px_${usersListIndex}_of_${usersList.length}'),
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: mySessionsDetails.length,
+                          itemBuilder: (context, mySessionsDetailsIndex) {
+                            final mySessionsDetailsItem =
+                                mySessionsDetails[mySessionsDetailsIndex];
+                            return Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(0.0),
+                                  bottomRight: Radius.circular(0.0),
+                                  topLeft: Radius.circular(12.0),
+                                  topRight: Radius.circular(12.0),
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 15.0, 12.0, 20.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                '9:00',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                              Text(
+                                                'AM',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 15.0,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Keynote',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                              ),
+                                              Container(
+                                                width: 240.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 24.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    'Community on a Global Scale ',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1,
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 12.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    Text(
+                                                      '9.00AM - 9:30AM',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Color(
+                                                                    0xFF707070),
+                                                                fontSize: 11.0,
+                                                              ),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 10.0,
+                                                      child: VerticalDivider(
+                                                        thickness: 2.0,
+                                                        color:
+                                                            Color(0xFF707070),
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Room 1',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Montserrat',
+                                                                color: Color(
+                                                                    0xFF707070),
+                                                                fontSize: 11.0,
+                                                              ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 5.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    FaIcon(
+                                                      FontAwesomeIcons.android,
+                                                      color: Color(0xFF000CEB),
+                                                      size: 24.0,
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.34,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        'Greg Fawson',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyText1
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              color: Color(
+                                                                  0xFF000CEB),
+                                                              fontSize: 14.0,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Image.asset(
+                                            'assets/images/star.png',
+                                            width: 21.0,
+                                            height: 21.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: AlignmentDirectional(-0.8, 0.0),
+                                    child: Container(
+                                      width: 24.0,
+                                      height: 24.0,
+                                      child: custom_widgets.ProgressLink(
+                                        width: 24.0,
+                                        height: 24.0,
+                                        index: mySessionsDetailsIndex,
+                                        images: FFAppState().listLinks.toList(),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             );
                           },
                         );
                       },
                     ),
-                  ),
-                  wrapWithModel(
-                    model: _model.sponsorsComponentModel,
-                    updateCallback: () => setState(() {}),
-                    child: SponsorsComponentWidget(),
-                  ),
-                  wrapWithModel(
-                    model: _model.organisedbyComponentModel,
-                    updateCallback: () => setState(() {}),
-                    child: OrganisedbyComponentWidget(),
                   ),
                 ],
               ),
