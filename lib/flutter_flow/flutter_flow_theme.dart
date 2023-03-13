@@ -138,51 +138,51 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get title1Family => 'Poppins';
+  String get title1Family => 'Montserrat';
   TextStyle get title1 => GoogleFonts.getFont(
-        'Poppins',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
-  String get title2Family => 'Poppins';
+  String get title2Family => 'Montserrat';
   TextStyle get title2 => GoogleFonts.getFont(
-        'Poppins',
+        'Montserrat',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
-  String get title3Family => 'Poppins';
+  String get title3Family => 'Montserrat';
   TextStyle get title3 => GoogleFonts.getFont(
-        'Poppins',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get subtitle1Family => 'Poppins';
+  String get subtitle1Family => 'Montserrat';
   TextStyle get subtitle1 => GoogleFonts.getFont(
-        'Poppins',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get subtitle2Family => 'Poppins';
+  String get subtitle2Family => 'Montserrat';
   TextStyle get subtitle2 => GoogleFonts.getFont(
-        'Poppins',
+        'Montserrat',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get bodyText1Family => 'Poppins';
+  String get bodyText1Family => 'Montserrat';
   TextStyle get bodyText1 => GoogleFonts.getFont(
-        'Poppins',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyText2Family => 'Poppins';
+  String get bodyText2Family => 'Montserrat';
   TextStyle get bodyText2 => GoogleFonts.getFont(
-        'Poppins',
+        'Montserrat',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,

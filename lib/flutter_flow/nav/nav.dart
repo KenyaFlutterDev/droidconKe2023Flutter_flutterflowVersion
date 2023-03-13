@@ -73,6 +73,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'sessions_page')
               : SessionsPageWidget(),
+        ),
+        FFRoute(
+          name: 'speaker_page',
+          path: '/speakerPage',
+          builder: (context, params) => SpeakerPageWidget(),
+        ),
+        FFRoute(
+          name: 'session_details_page',
+          path: '/sessionDetailsPage',
+          builder: (context, params) => SessionDetailsPageWidget(),
+        ),
+        FFRoute(
+          name: 'feedback_page',
+          path: '/feedbackPage',
+          builder: (context, params) => FeedbackPageWidget(),
+        ),
+        FFRoute(
+          name: 'all_speakers_page',
+          path: '/allSpeakersPage',
+          builder: (context, params) => AllSpeakersPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,

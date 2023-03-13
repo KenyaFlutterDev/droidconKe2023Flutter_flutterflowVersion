@@ -81,7 +81,7 @@ class _OrganizersComponentWidgetState extends State<OrganizersComponentWidget> {
             child: Text(
               'The Chief',
               style: FlutterFlowTheme.of(context).bodyText1.override(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Montserrat',
                     color: Color(0xFF707070),
                     fontSize: 11.0,
                   ),

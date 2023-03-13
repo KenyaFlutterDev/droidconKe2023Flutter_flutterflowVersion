@@ -87,7 +87,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                     child: Text(
                       'About',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Poppins',
+                            fontFamily: 'Montserrat',
                             color: FlutterFlowTheme.of(context).primaryColor,
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold,
@@ -99,9 +99,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: Text(
                       'Droidcon is a global conference focused on the engineering of Android applications. Droidcon provides a forum for developers to network with other developers, share techniques, announce apps and products, and to learn and teach. This two-day developer focused gathering will be held in Nairobi Kenya on August 6th to 8th 2020 and will be the largest of its kind in Africa. It will have workshops and codelabs focused on the building of Android applications and will give participants an excellent chance to learn about the local Android development ecosystem, opportunities and services as well as meet the engineers and companies who work on them.',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Montserrat',
-                          ),
+                      style: FlutterFlowTheme.of(context).bodyText1,
                     ),
                   ),
                   Padding(
@@ -110,7 +108,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                     child: Text(
                       'Organizing Team',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Poppins',
+                            fontFamily: 'Montserrat',
                             color: FlutterFlowTheme.of(context).primaryColor,
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold,
