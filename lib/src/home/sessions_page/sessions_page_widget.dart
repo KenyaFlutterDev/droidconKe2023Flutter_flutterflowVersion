@@ -1,3 +1,4 @@
+import '/components/session_date_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/src/widgets/session_header/session_header_widget.dart';
@@ -42,7 +43,6 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFF5F5F5),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
@@ -64,8 +64,87 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                     width: double.infinity,
                     height: 51.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            wrapWithModel(
+                              model: _model.sessionDateComponentModel1,
+                              updateCallback: () => setState(() {}),
+                              child: SessionDateComponentWidget(
+                                date: '16th',
+                                day: 'Day 1',
+                                color: Color(0xFFFF6E4D),
+                                dateColor: Colors.white,
+                                dayColor: Colors.white,
+                              ),
+                            ),
+                            wrapWithModel(
+                              model: _model.sessionDateComponentModel2,
+                              updateCallback: () => setState(() {}),
+                              child: SessionDateComponentWidget(
+                                date: '17th',
+                                day: 'Day 2',
+                                color: Color(0xFFF1FCF8),
+                                dateColor: Color(0xFF20201E),
+                                dayColor: Color(0xFF707070),
+                              ),
+                            ),
+                            wrapWithModel(
+                              model: _model.sessionDateComponentModel3,
+                              updateCallback: () => setState(() {}),
+                              child: SessionDateComponentWidget(
+                                date: '18th',
+                                day: 'Day 3',
+                                color: Color(0xFFF1FCF8),
+                                dateColor: Color(0xFF20201E),
+                                dayColor: Color(0xFF707070),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              width: 53.0,
+                              height: 25.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Switch.adaptive(
+                                value: _model.switchValue ??= _model.mySessions,
+                                onChanged: (newValue) async {
+                                  setState(
+                                      () => _model.switchValue = newValue!);
+                                },
+                                activeColor: Color(0xFFFF6E4D),
+                                inactiveTrackColor: Color(0xFF20201E),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 6.0, 0.0, 0.0),
+                              child: Text(
+                                'My Sessions',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color: Color(0xFF707070),
+                                      fontSize: 9.0,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -75,7 +154,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 18.88, 0.0, 0.0),
                   child: Text(
-                    'My Sessions',
+                    _model.switchValue! ? 'My Session' : 'All Sessions',
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Poppins',
                           color: Color(0xFF000CEB),
