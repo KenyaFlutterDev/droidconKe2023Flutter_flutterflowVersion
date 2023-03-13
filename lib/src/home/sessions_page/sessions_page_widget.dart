@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/src/widgets/sesion_header_component/sesion_header_component_widget.dart';
 import '/src/widgets/session_date_component/session_date_component_widget.dart';
-import '/src/widgets/session_header/session_header_widget.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -54,9 +54,10 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 wrapWithModel(
-                  model: _model.sessionHeaderModel,
+                  model: _model.sesionHeaderComponentModel,
                   updateCallback: () => setState(() {}),
-                  child: SessionHeaderWidget(),
+                  updateOnChange: true,
+                  child: SesionHeaderComponentWidget(),
                 ),
                 Padding(
                   padding:
@@ -164,61 +165,79 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                         ),
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                    child: Builder(
-                      builder: (context) {
-                        final mySessionsDetails = List.generate(
-                                random_data.randomInteger(0, 7),
-                                (index) => random_data.randomInteger(5, 7))
-                            .toList()
-                            .take(20)
-                            .toList();
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: mySessionsDetails.length,
-                          itemBuilder: (context, mySessionsDetailsIndex) {
-                            final mySessionsDetailsItem =
-                                mySessionsDetails[mySessionsDetailsIndex];
-                            return Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(0.0),
-                                  topLeft: Radius.circular(12.0),
-                                  topRight: Radius.circular(12.0),
+                if (FFAppState().sessionListToggle == false)
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                      child: Builder(
+                        builder: (context) {
+                          final mySessionsDetails = List.generate(
+                                  random_data.randomInteger(0, 7),
+                                  (index) => random_data.randomInteger(5, 7))
+                              .toList()
+                              .take(20)
+                              .toList();
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: mySessionsDetails.length,
+                            itemBuilder: (context, mySessionsDetailsIndex) {
+                              final mySessionsDetailsItem =
+                                  mySessionsDetails[mySessionsDetailsIndex];
+                              return Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(0.0),
+                                    bottomRight: Radius.circular(0.0),
+                                    topLeft: Radius.circular(12.0),
+                                    topRight: Radius.circular(12.0),
+                                  ),
                                 ),
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 15.0, 12.0, 20.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Column(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    InkWell(
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'session_details_page',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType: PageTransitionType
+                                                  .rightToLeft,
+                                              duration:
+                                                  Duration(milliseconds: 2000),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 15.0, 12.0, 20.0),
+                                          child: Row(
                                             mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
-                                              Text(
-                                                '9:00',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    '9:00',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyText1
                                                         .override(
                                                           fontFamily:
@@ -227,29 +246,29 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
-                                              ),
-                                              Text(
-                                                'AM',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                                  ),
+                                                  Text(
+                                                    'AM',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyText1
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
                                                           fontSize: 15.0,
                                                         ),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                'Keynote',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Keynote',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyText1
                                                         .override(
                                                           fontFamily:
@@ -258,177 +277,455 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
-                                              ),
-                                              Container(
-                                                width: 240.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 24.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'Community on a Global Scale ',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText1,
                                                   ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 12.0, 0.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  children: [
-                                                    Text(
-                                                      '9.00AM - 9:30AM',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Montserrat',
-                                                                color: Color(
-                                                                    0xFF707070),
-                                                                fontSize: 11.0,
-                                                              ),
+                                                  Container(
+                                                    width: 240.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
                                                     ),
-                                                    SizedBox(
-                                                      height: 10.0,
-                                                      child: VerticalDivider(
-                                                        thickness: 2.0,
-                                                        color:
-                                                            Color(0xFF707070),
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      'Room 1',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Montserrat',
-                                                                color: Color(
-                                                                    0xFF707070),
-                                                                fontSize: 11.0,
-                                                              ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    FaIcon(
-                                                      FontAwesomeIcons.android,
-                                                      color: Color(0xFF000CEB),
-                                                      size: 24.0,
-                                                    ),
-                                                    Padding(
+                                                    child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.34,
                                                                   0.0,
+                                                                  24.0,
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        'Greg Fawson',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyText1
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Montserrat',
-                                                              color: Color(
-                                                                  0xFF000CEB),
-                                                              fontSize: 14.0,
-                                                            ),
+                                                        'Community on a Global Scale ',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyText1,
                                                       ),
                                                     ),
-                                                  ],
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 12.0,
+                                                                0.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        Text(
+                                                          '9.00AM - 9:30AM',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Montserrat',
+                                                                color: Color(
+                                                                    0xFF707070),
+                                                                fontSize: 11.0,
+                                                              ),
+                                                        ),
+                                                        SizedBox(
+                                                          height: 10.0,
+                                                          child:
+                                                              VerticalDivider(
+                                                            thickness: 2.0,
+                                                            color: Color(
+                                                                0xFF707070),
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          'Room 1',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Montserrat',
+                                                                color: Color(
+                                                                    0xFF707070),
+                                                                fontSize: 11.0,
+                                                              ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 5.0,
+                                                                0.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        FaIcon(
+                                                          FontAwesomeIcons
+                                                              .android,
+                                                          color:
+                                                              Color(0xFF000CEB),
+                                                          size: 24.0,
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.34,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Greg Fawson',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Montserrat',
+                                                                  color: Color(
+                                                                      0xFF000CEB),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              if (_model.switchValue!
+                                                  ? false
+                                                  : true)
+                                                Image.asset(
+                                                  'assets/images/star.png',
+                                                  width: 21.0,
+                                                  height: 21.0,
+                                                  fit: BoxFit.cover,
                                                 ),
+                                              if (_model.switchValue!
+                                                  ? true
+                                                  : false)
+                                                FaIcon(
+                                                  FontAwesomeIcons.solidStar,
+                                                  color: Color(0xFFFF6E4D),
+                                                  size: 19.0,
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    if (mySessionsDetailsIndex % 2 == 0
+                                        ? true
+                                        : false)
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-0.8, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 7.4, 0.0, 12.23),
+                                          child: Image.asset(
+                                            'assets/images/green.png',
+                                            width: 24.0,
+                                            height: 24.0,
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
+                                    if (!(mySessionsDetailsIndex % 2 == 0)
+                                        ? true
+                                        : false)
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-0.8, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 7.4, 0.0, 12.23),
+                                          child: Image.asset(
+                                            'assets/images/orange.png',
+                                            width: 24.0,
+                                            height: 24.0,
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                if (FFAppState().sessionListToggle == true)
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                      child: Builder(
+                        builder: (context) {
+                          final mySessionsDetails = List.generate(
+                                  random_data.randomInteger(0, 7),
+                                  (index) => random_data.randomInteger(5, 7))
+                              .toList()
+                              .take(20)
+                              .toList();
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: mySessionsDetails.length,
+                            itemBuilder: (context, mySessionsDetailsIndex) {
+                              final mySessionsDetailsItem =
+                                  mySessionsDetails[mySessionsDetailsIndex];
+                              return Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 15.38),
+                                child: InkWell(
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'session_details_page',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.rightToLeft,
+                                          duration:
+                                              Duration(milliseconds: 2000),
+                                        ),
+                                      },
+                                    );
+                                  },
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 302.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFF5F5F5),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(0.0),
+                                            bottomRight: Radius.circular(0.0),
+                                            topLeft: Radius.circular(12.0),
+                                            topRight: Radius.circular(12.0),
+                                          ),
+                                          child: Image.asset(
+                                            'assets/images/FWMmgzPWAAMh9rp.png',
+                                            width: double.infinity,
+                                            height: 148.9,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 21.0, 10.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Text(
+                                                '@10:30',
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyText1
+                                                    .override(
+                                                      fontFamily: 'Montserrat',
+                                                      color: Color(0xFF707070),
+                                                      fontSize: 13.0,
+                                                    ),
+                                              ),
+                                              SizedBox(
+                                                height: 10.0,
+                                                child: VerticalDivider(
+                                                  thickness: 2.0,
+                                                  color: Color(0xFF707070),
+                                                ),
+                                              ),
+                                              Text(
+                                                'Room 1',
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyText1
+                                                    .override(
+                                                      fontFamily: 'Montserrat',
+                                                      color: Color(0xFF707070),
+                                                      fontSize: 13.0,
+                                                    ),
                                               ),
                                             ],
                                           ),
-                                          if (_model.switchValue!
-                                              ? false
-                                              : true)
-                                            Image.asset(
-                                              'assets/images/star.png',
-                                              width: 21.0,
-                                              height: 21.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          if (_model.switchValue!
-                                              ? true
-                                              : false)
-                                            FaIcon(
-                                              FontAwesomeIcons.solidStar,
-                                              color: Color(0xFFFF6E4D),
-                                              size: 19.0,
-                                            ),
-                                        ],
-                                      ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 11.0, 10.0, 0.0),
+                                          child: Text(
+                                            'Transforming Famers Lives Using Android in Kenya',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 16.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, -0.78),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  26.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        width: 33.0,
+                                                        height: 33.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryColor,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      2.0,
+                                                                      2.0,
+                                                                      2.0,
+                                                                      2.0),
+                                                          child: Container(
+                                                            clipBehavior:
+                                                                Clip.antiAlias,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                            ),
+                                                            child: Image.asset(
+                                                              'assets/images/Screenshot_2022-11-10_at_20.58.45_2_90.png',
+                                                              fit: BoxFit.fill,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, -0.78),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  26.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        width: 33.0,
+                                                        height: 33.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryColor,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      2.0,
+                                                                      2.0,
+                                                                      2.0,
+                                                                      2.0),
+                                                          child: Container(
+                                                            clipBehavior:
+                                                                Clip.antiAlias,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                            ),
+                                                            child: Image.asset(
+                                                              'assets/images/Screenshot_2022-11-10_at_20.58.45_2_90.png',
+                                                              fit: BoxFit.fill,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  if (_model.switchValue!
+                                                      ? false
+                                                      : true)
+                                                    Image.asset(
+                                                      'assets/images/star.png',
+                                                      width: 21.0,
+                                                      height: 21.0,
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  if (_model.switchValue!
+                                                      ? true
+                                                      : false)
+                                                    FaIcon(
+                                                      FontAwesomeIcons
+                                                          .solidStar,
+                                                      color: Color(0xFFFF6E4D),
+                                                      size: 19.0,
+                                                    ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  if (mySessionsDetailsIndex % 2 == 0
-                                      ? true
-                                      : false)
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-0.8, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 7.4, 0.0, 12.23),
-                                        child: Image.asset(
-                                          'assets/images/green.png',
-                                          width: 24.0,
-                                          height: 24.0,
-                                          fit: BoxFit.contain,
-                                        ),
-                                      ),
-                                    ),
-                                  if (!(mySessionsDetailsIndex % 2 == 0)
-                                      ? true
-                                      : false)
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-0.8, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 7.4, 0.0, 12.23),
-                                        child: Image.asset(
-                                          'assets/images/orange.png',
-                                          width: 24.0,
-                                          height: 24.0,
-                                          fit: BoxFit.contain,
-                                        ),
-                                      ),
-                                    ),
-                                ],
-                              ),
-                            );
-                          },
-                        );
-                      },
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ),
                   ),
-                ),
               ],
             ),
           ),

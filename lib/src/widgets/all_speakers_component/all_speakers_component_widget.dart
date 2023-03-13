@@ -108,29 +108,45 @@ class _AllSpeakersComponentWidgetState
               alignment: AlignmentDirectional(0.0, 0.4),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                child: Container(
-                  width: 143.0,
-                  height: 45.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    border: Border.all(
-                      color: FlutterFlowTheme.of(context).secondaryColor,
-                      width: 5.0,
+                child: InkWell(
+                  onTap: () async {
+                    context.pushNamed(
+                      'session_details_page',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.rightToLeft,
+                          duration: Duration(milliseconds: 2000),
+                        ),
+                      },
+                    );
+                  },
+                  child: Container(
+                    width: 143.0,
+                    height: 45.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      border: Border.all(
+                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        width: 5.0,
+                      ),
                     ),
-                  ),
-                  child: Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(5.64, 0.0, 0.0, 0.0),
-                      child: Text(
-                        'SESSION',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Montserrat',
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
-                              fontWeight: FontWeight.w600,
-                            ),
+                    child: Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(5.64, 0.0, 0.0, 0.0),
+                        child: Text(
+                          'SESSION',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Montserrat',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryColor,
+                                fontWeight: FontWeight.w600,
+                              ),
+                        ),
                       ),
                     ),
                   ),

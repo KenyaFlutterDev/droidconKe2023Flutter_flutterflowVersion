@@ -16,6 +16,8 @@ class FFAppState extends ChangeNotifier {
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
     _listLinks = prefs.getStringList('ff_listLinks') ?? _listLinks;
+    _sessionListToggle =
+        prefs.getBool('ff_sessionListToggle') ?? _sessionListToggle;
   }
 
   void update(VoidCallback callback) {
@@ -48,6 +50,13 @@ class FFAppState extends ChangeNotifier {
   void removeAtIndexFromListLinks(int _index) {
     _listLinks.removeAt(_index);
     prefs.setStringList('ff_listLinks', _listLinks);
+  }
+
+  bool _sessionListToggle = false;
+  bool get sessionListToggle => _sessionListToggle;
+  set sessionListToggle(bool _value) {
+    _sessionListToggle = _value;
+    prefs.setBool('ff_sessionListToggle', _value);
   }
 }
 
