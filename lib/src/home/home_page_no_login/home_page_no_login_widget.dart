@@ -85,16 +85,14 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Text(
                         'Welcome to the largest Focussed Android Developer community in Africa',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Montserrat',
-                            ),
+                        style: FlutterFlowTheme.of(context).bodyText1,
                       ),
                     ),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                     child: Container(
-                      width: 372.0,
+                      width: double.infinity,
                       height: 175.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -149,7 +147,7 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            fontFamily: 'Montserrat',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             fontSize: 16.0,

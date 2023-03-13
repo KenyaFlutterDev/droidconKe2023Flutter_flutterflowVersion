@@ -1,6 +1,6 @@
-import '/components/session_date_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/src/widgets/session_date_component/session_date_component_widget.dart';
 import '/src/widgets/session_header/session_header_widget.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 class SessionsPageModel extends FlutterFlowModel {
   ///  Local state fields for this page.
 
-  bool mySessions = true;
+  bool mySessions = false;
 
   ///  State fields for stateful widgets in this page.
 

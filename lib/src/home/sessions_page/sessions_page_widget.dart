@@ -1,6 +1,6 @@
-import '/components/session_date_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/src/widgets/session_date_component/session_date_component_widget.dart';
 import '/src/widgets/session_header/session_header_widget.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
@@ -156,7 +156,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                   child: Text(
                     _model.switchValue! ? 'My Session' : 'All Sessions',
                     style: FlutterFlowTheme.of(context).bodyText1.override(
-                          fontFamily: 'Poppins',
+                          fontFamily: 'Montserrat',
                           color: Color(0xFF000CEB),
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
@@ -220,7 +220,8 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          fontFamily:
+                                                              'Montserrat',
                                                           fontSize: 18.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -232,7 +233,8 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          fontFamily:
+                                                              'Montserrat',
                                                           fontSize: 15.0,
                                                         ),
                                               ),
@@ -249,7 +251,8 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          fontFamily:
+                                                              'Montserrat',
                                                           fontSize: 18.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -290,7 +293,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                               .bodyText1
                                                               .override(
                                                                 fontFamily:
-                                                                    'Poppins',
+                                                                    'Montserrat',
                                                                 color: Color(
                                                                     0xFF707070),
                                                                 fontSize: 11.0,
@@ -349,7 +352,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                             .bodyText1
                                                             .override(
                                                               fontFamily:
-                                                                  'Poppins',
+                                                                  'Montserrat',
                                                               color: Color(
                                                                   0xFF000CEB),
                                                               fontSize: 14.0,
@@ -361,12 +364,23 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                               ),
                                             ],
                                           ),
-                                          Image.asset(
-                                            'assets/images/star.png',
-                                            width: 21.0,
-                                            height: 21.0,
-                                            fit: BoxFit.cover,
-                                          ),
+                                          if (_model.switchValue!
+                                              ? false
+                                              : true)
+                                            Image.asset(
+                                              'assets/images/star.png',
+                                              width: 21.0,
+                                              height: 21.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          if (_model.switchValue!
+                                              ? true
+                                              : false)
+                                            FaIcon(
+                                              FontAwesomeIcons.solidStar,
+                                              color: Color(0xFFFF6E4D),
+                                              size: 19.0,
+                                            ),
                                         ],
                                       ),
                                     ),

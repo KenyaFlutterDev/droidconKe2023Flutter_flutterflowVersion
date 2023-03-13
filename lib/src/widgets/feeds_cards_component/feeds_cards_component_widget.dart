@@ -52,9 +52,7 @@ class _FeedsCardsComponentWidgetState extends State<FeedsCardsComponentWidget> {
         children: [
           Text(
             'We are pleased to have a team from Andela Kenya who will have a talk about Software Engineers to the Power of X from an Employer\'s Perspective.',
-            style: FlutterFlowTheme.of(context).bodyText1.override(
-                  fontFamily: 'Montserrat',
-                ),
+            style: FlutterFlowTheme.of(context).bodyText1,
           ),
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
@@ -77,7 +75,7 @@ class _FeedsCardsComponentWidgetState extends State<FeedsCardsComponentWidget> {
                     Text(
                       'Share',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Poppins',
+                            fontFamily: 'Montserrat',
                             color: Color(0xFF000CEB),
                             fontSize: 14.0,
                             fontWeight: FontWeight.bold,
@@ -97,7 +95,7 @@ class _FeedsCardsComponentWidgetState extends State<FeedsCardsComponentWidget> {
                 Text(
                   '5 hours ago',
                   style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Montserrat',
                         color: Color(0xFF707070),
                         fontSize: 12.0,
                       ),

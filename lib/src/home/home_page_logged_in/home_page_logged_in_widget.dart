@@ -101,7 +101,7 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyText1
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  fontFamily: 'Montserrat',
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   fontSize: 18.0,
@@ -201,7 +201,7 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyText1
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  fontFamily: 'Montserrat',
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   fontSize: 18.0,
@@ -273,9 +273,24 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                           itemCount: usersList.length,
                           itemBuilder: (context, usersListIndex) {
                             final usersListItem = usersList[usersListIndex];
-                            return SpeakersComponentWidget(
-                              key: Key(
-                                  'Keyep8_${usersListIndex}_of_${usersList.length}'),
+                            return InkWell(
+                              onTap: () async {
+                                context.pushNamed(
+                                  'speaker_page',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType:
+                                          PageTransitionType.rightToLeft,
+                                      duration: Duration(milliseconds: 2000),
+                                    ),
+                                  },
+                                );
+                              },
+                              child: SpeakersComponentWidget(
+                                key: Key(
+                                    'Keyep8_${usersListIndex}_of_${usersList.length}'),
+                              ),
                             );
                           },
                         );

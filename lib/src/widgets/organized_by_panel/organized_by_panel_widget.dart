@@ -47,7 +47,7 @@ class _OrganizedByPanelWidgetState extends State<OrganizedByPanelWidget> {
           child: Text(
             'Organised by;',
             style: FlutterFlowTheme.of(context).bodyText1.override(
-                  fontFamily: 'Poppins',
+                  fontFamily: 'Montserrat',
                   color: Color(0xFF000CEB),
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,

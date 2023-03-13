@@ -73,6 +73,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'sessions_page')
               : SessionsPageWidget(),
+        ),
+        FFRoute(
+          name: 'speaker_page',
+          path: '/speakerPage',
+          builder: (context, params) => SpeakerPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,

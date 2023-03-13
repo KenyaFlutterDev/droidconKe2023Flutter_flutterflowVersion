@@ -83,7 +83,7 @@ class _SessionDateComponentWidgetState
             Text(
               widget.day,
               style: FlutterFlowTheme.of(context).bodyText1.override(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Montserrat',
                     color: widget.dayColor,
                     fontSize: 11.0,
                   ),
