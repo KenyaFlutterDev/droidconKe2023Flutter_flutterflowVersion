@@ -114,15 +114,31 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 8.0, 0.0),
-                                child: Text(
-                                  'View All',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: Color(0xFF000CEB),
-                                        fontSize: 12.0,
-                                      ),
+                                child: InkWell(
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'sessions_page',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.rightToLeft,
+                                          duration:
+                                              Duration(milliseconds: 2000),
+                                        ),
+                                      },
+                                    );
+                                  },
+                                  child: Text(
+                                    'View All',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: Color(0xFF000CEB),
+                                          fontSize: 12.0,
+                                        ),
+                                  ),
                                 ),
                               ),
                               Container(
@@ -174,9 +190,24 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                           itemBuilder: (context, sessionaListIndex) {
                             final sessionaListItem =
                                 sessionaList[sessionaListIndex];
-                            return SessionsCardComponentWidget(
-                              key: Key(
-                                  'Keyg4r_${sessionaListIndex}_of_${sessionaList.length}'),
+                            return InkWell(
+                              onTap: () async {
+                                context.pushNamed(
+                                  'session_details_page',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType:
+                                          PageTransitionType.rightToLeft,
+                                      duration: Duration(milliseconds: 2000),
+                                    ),
+                                  },
+                                );
+                              },
+                              child: SessionsCardComponentWidget(
+                                key: Key(
+                                    'Keyg4r_${sessionaListIndex}_of_${sessionaList.length}'),
+                              ),
                             );
                           },
                         );
@@ -208,46 +239,61 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 8.0, 0.0),
-                                child: Text(
-                                  'View All',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: Color(0xFF000CEB),
-                                        fontSize: 12.0,
-                                      ),
-                                ),
-                              ),
-                              Container(
-                                width: 35.0,
-                                height: 22.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFE3E4FD),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                          InkWell(
+                            onTap: () async {
+                              context.pushNamed(
+                                'all_speakers_page',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType:
+                                        PageTransitionType.rightToLeft,
+                                    duration: Duration(milliseconds: 2000),
+                                  ),
+                                },
+                              );
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 8.0, 0.0),
                                   child: Text(
-                                    '+45',
+                                    'View All',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: Color(0xFF000CEB),
-                                          fontSize: 10.0,
+                                          fontSize: 12.0,
                                         ),
                                   ),
                                 ),
-                              ),
-                            ],
+                                Container(
+                                  width: 35.0,
+                                  height: 22.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFE3E4FD),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Text(
+                                      '+45',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: Color(0xFF000CEB),
+                                            fontSize: 10.0,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),

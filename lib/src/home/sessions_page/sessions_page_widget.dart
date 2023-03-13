@@ -43,6 +43,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
 
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: Color(0xFFF4F4F3),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),

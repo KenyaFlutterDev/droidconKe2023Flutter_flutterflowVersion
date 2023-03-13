@@ -1,6 +1,6 @@
-import '/components/outlined_icon_button_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/src/widgets/twitter_handle_component/twitter_handle_component_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -155,38 +155,10 @@ class _SpeakerPageWidgetState extends State<SpeakerPageWidget> {
                         Divider(
                           thickness: 2.0,
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 19.0, 0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 54.0, 0.0),
-                                child: Text(
-                                  'Twitter Handle',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: Color(0xFF20201E),
-                                      ),
-                                ),
-                              ),
-                              Expanded(
-                                child: wrapWithModel(
-                                  model: _model.outlinedIconButtonModel,
-                                  updateCallback: () => setState(() {}),
-                                  child: OutlinedIconButtonWidget(
-                                    twitterHandle: 'muli_eriq',
-                                    buttonHeight: 38.0,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                        wrapWithModel(
+                          model: _model.twitterHandleComponentModel,
+                          updateCallback: () => setState(() {}),
+                          child: TwitterHandleComponentWidget(),
                         ),
                       ],
                     ),
