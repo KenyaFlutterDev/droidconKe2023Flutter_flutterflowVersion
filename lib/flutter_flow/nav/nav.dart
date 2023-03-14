@@ -93,6 +93,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'all_speakers_page',
           path: '/allSpeakersPage',
           builder: (context, params) => AllSpeakersPageWidget(),
+        ),
+        FFRoute(
+          name: 'reset_password_confirmation_page',
+          path: '/resetPasswordConfirmationPage',
+          builder: (context, params) => ResetPasswordConfirmationPageWidget(),
+        ),
+        FFRoute(
+          name: 'reset_password_page',
+          path: '/resetPasswordPage',
+          builder: (context, params) => ResetPasswordPageWidget(),
+        ),
+        FFRoute(
+          name: 'sign_in_page',
+          path: '/signInPage',
+          builder: (context, params) => SignInPageWidget(),
+        ),
+        FFRoute(
+          name: 'sign_in_up_page',
+          path: '/signInUpPage',
+          builder: (context, params) => SignInUpPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,

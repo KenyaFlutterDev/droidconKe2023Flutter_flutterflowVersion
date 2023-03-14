@@ -30,7 +30,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
       await Future.delayed(const Duration(milliseconds: 3000));
 
       context.goNamed(
-        'home_page_logged_in',
+        'sign_in_up_page',
         extra: <String, dynamic>{
           kTransitionInfoKey: TransitionInfo(
             hasTransition: true,
