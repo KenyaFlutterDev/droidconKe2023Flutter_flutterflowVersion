@@ -1,7 +1,9 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +27,25 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FeedbackPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return AlertDialog(
+            title: Text('hjghuj'),
+            content: Text('jhj'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(alertDialogContext),
+                child: Text('Ok'),
+              ),
+            ],
+          );
+        },
+      );
+    });
 
     _model.textController ??= TextEditingController();
   }
@@ -326,8 +347,23 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                   padding:
                       EdgeInsetsDirectional.fromSTEB(20.0, 26.0, 20.0, 0.0),
                   child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      await showDialog(
+                        context: context,
+                        builder: (alertDialogContext) {
+                          return AlertDialog(
+                            title: Text('bjb'),
+                            content: Text('bjb'),
+                            actions: [
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(alertDialogContext),
+                                child: Text('Ok'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
                     },
                     text: 'SUBMIT FEEDBACK',
                     options: FFButtonOptions(
@@ -348,6 +384,18 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: 40.0,
+                    child: custom_widgets.FeedbackActionDialog(
+                      width: double.infinity,
+                      height: 40.0,
                     ),
                   ),
                 ),
