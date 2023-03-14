@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/src/modals/share_modal/share_modal_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -69,28 +70,47 @@ class _FeedsCardsComponentWidgetState extends State<FeedsCardsComponentWidget> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Text(
-                      'Share',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Montserrat',
-                            color: Color(0xFF000CEB),
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.bold,
+                InkWell(
+                  onTap: () async {
+                    await showModalBottomSheet(
+                      isScrollControlled: true,
+                      backgroundColor: Colors.transparent,
+                      enableDrag: false,
+                      context: context,
+                      builder: (context) {
+                        return Padding(
+                          padding: MediaQuery.of(context).viewInsets,
+                          child: Container(
+                            height: 245.0,
+                            child: ShareModalWidget(),
                           ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(7.27, 0.0, 0.0, 0.0),
-                      child: FaIcon(
-                        FontAwesomeIcons.share,
-                        color: Color(0xFF000CEB),
-                        size: 24.0,
+                        );
+                      },
+                    ).then((value) => setState(() {}));
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Text(
+                        'Share',
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Montserrat',
+                              color: Color(0xFF000CEB),
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(7.27, 0.0, 0.0, 0.0),
+                        child: FaIcon(
+                          FontAwesomeIcons.share,
+                          color: Color(0xFF000CEB),
+                          size: 24.0,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 Text(
                   '5 hours ago',

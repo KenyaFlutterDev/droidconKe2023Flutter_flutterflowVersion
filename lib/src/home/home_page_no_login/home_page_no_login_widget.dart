@@ -69,10 +69,26 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                           color: FlutterFlowTheme.of(context).secondaryColor,
                           shape: BoxShape.circle,
                         ),
-                        child: Icon(
-                          Icons.lock,
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                          size: 14.3,
+                        child: InkWell(
+                          onTap: () async {
+                            context.pushNamed(
+                              'home_page_logged_in',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType:
+                                      PageTransitionType.rightToLeft,
+                                  duration: Duration(milliseconds: 2000),
+                                ),
+                              },
+                            );
+                          },
+                          child: Icon(
+                            Icons.lock,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            size: 14.3,
+                          ),
                         ),
                       ),
                     ],

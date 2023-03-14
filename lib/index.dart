@@ -17,3 +17,10 @@ export '/src/feedback_page/feedback_page/feedback_page_widget.dart'
     show FeedbackPageWidget;
 export '/src/spekers/all_speakers_page/all_speakers_page_widget.dart'
     show AllSpeakersPageWidget;
+export '/src/auth/reset_password_confirmation_page/reset_password_confirmation_page_widget.dart'
+    show ResetPasswordConfirmationPageWidget;
+export '/src/auth/reset_password_page/reset_password_page_widget.dart'
+    show ResetPasswordPageWidget;
+export '/src/auth/sign_in_page/sign_in_page_widget.dart' show SignInPageWidget;
+export '/src/auth/sign_in_up_page/sign_in_up_page_widget.dart'
+    show SignInUpPageWidget;
