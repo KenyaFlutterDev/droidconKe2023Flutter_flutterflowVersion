@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/src/modals/filter_component/filter_component_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -106,25 +107,41 @@ class _SesionHeaderComponentWidgetState
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
                 ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      'Filter',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Montserrat',
-                            color: Color(0xFF000CEB),
-                            fontSize: 18.0,
-                          ),
-                    ),
-                    Image.asset(
-                      'assets/images/filter.png',
-                      width: 20.0,
-                      height: 20.0,
-                      fit: BoxFit.cover,
-                    ),
-                  ],
+                child: InkWell(
+                  onTap: () async {
+                    await showModalBottomSheet(
+                      isScrollControlled: true,
+                      backgroundColor: Colors.transparent,
+                      enableDrag: false,
+                      context: context,
+                      builder: (context) {
+                        return Padding(
+                          padding: MediaQuery.of(context).viewInsets,
+                          child: FilterComponentWidget(),
+                        );
+                      },
+                    ).then((value) => setState(() {}));
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        'Filter',
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Montserrat',
+                              color: Color(0xFF000CEB),
+                              fontSize: 18.0,
+                            ),
+                      ),
+                      Image.asset(
+                        'assets/images/filter.png',
+                        width: 20.0,
+                        height: 20.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
