@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>DroidConKe Flutter Flow Version</string>
+	<string>DroidconKe2023FlutterFlow</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>DroidConKe Flutter Flow Version</string>
+	<string>DroidconKe2023FlutterFlow</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 
@@ -22,14 +22,25 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
-	<array>        <dict>
+	<array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>com.googleusercontent.apps.602867001820-34dovhe457imsa2dg1acnmfuf233rijq</string>
+                
+            </array>
+        </dict>
+
+        <dict>
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>droidconkeflutterflowversion.com</string>
+        <string>droidconke2023flutterflow.com</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>droidconkeflutterflowversion</string>
+        <string>droidconke2023flutterflow</string>
         </array>
         </dict>
     </array>

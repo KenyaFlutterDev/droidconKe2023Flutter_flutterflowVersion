@@ -1,3 +1,4 @@
+import '/auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -80,11 +81,22 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 52.0, 0.0, 0.0),
-                        child: Image.asset(
-                          'assets/images/btn_google_dark_normal_ios.png',
-                          width: 208.0,
-                          height: 40.0,
-                          fit: BoxFit.cover,
+                        child: InkWell(
+                          onTap: () async {
+                            GoRouter.of(context).prepareAuthEvent();
+                            final user = await signInWithGoogle(context);
+                            if (user == null) {
+                              return;
+                            }
+
+                            context.goNamedAuth('home_page_logged_in', mounted);
+                          },
+                          child: Image.asset(
+                            'assets/images/btn_google_dark_normal_ios.png',
+                            width: 208.0,
+                            height: 40.0,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Text(

@@ -248,7 +248,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                       child: Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          'Beginner',
+                          'UI UX Design',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Montserrat',
@@ -270,7 +270,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                       child: Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          'Intermediate',
+                          'Backend',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Montserrat',
@@ -298,7 +298,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                       child: Align(
                         alignment: AlignmentDirectional(0.0, 0.05),
                         child: Text(
-                          'Expert',
+                          'API\'s',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Montserrat',
@@ -342,7 +342,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
-                            'Beginner',
+                            'Flutter',
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Montserrat',
@@ -364,7 +364,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
-                            'Intermediate',
+                            'Android',
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Montserrat',
@@ -392,7 +392,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Align(
                           alignment: AlignmentDirectional(0.0, 0.05),
                           child: Text(
-                            'Expert',
+                            'React Native',
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Montserrat',
@@ -448,7 +448,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                       child: Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          'Beginner',
+                          'Room 1',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Montserrat',
@@ -470,7 +470,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                       child: Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          'Intermediate',
+                          'Room 2',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Montserrat',
@@ -498,7 +498,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                       child: Align(
                         alignment: AlignmentDirectional(0.0, 0.05),
                         child: Text(
-                          'Expert',
+                          'Room 3',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Montserrat',
@@ -553,7 +553,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                       child: Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          'Beginner',
+                          'Keynote',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Montserrat',
@@ -575,7 +575,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                       child: Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          'Intermediate',
+                          'Codelab',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Montserrat',
@@ -603,7 +603,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                       child: Align(
                         alignment: AlignmentDirectional(0.0, 0.05),
                         child: Text(
-                          'Expert',
+                          'Session',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Montserrat',
@@ -627,52 +627,63 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      width: 124.0,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF6F6F8),
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(12.0),
-                          bottomRight: Radius.circular(0.0),
-                          topLeft: Radius.circular(12.0),
-                          topRight: Radius.circular(0.0),
+                    Expanded(
+                      child: Container(
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFF6F6F8),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(12.0),
+                            bottomRight: Radius.circular(0.0),
+                            topLeft: Radius.circular(12.0),
+                            topRight: Radius.circular(0.0),
+                          ),
+                          border: Border.all(
+                            width: 1.0,
+                          ),
                         ),
-                        border: Border.all(
-                          width: 1.0,
-                        ),
-                      ),
-                      child: Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Text(
-                          'Beginner',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Montserrat',
-                                    fontSize: 13.0,
-                                  ),
+                        child: Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'Lightning talk',
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 13.0,
+                                    ),
+                          ),
                         ),
                       ),
                     ),
-                    Container(
-                      width: 124.0,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF6F6F8),
-                        border: Border.all(
-                          width: 1.0,
+                    Expanded(
+                      child: Container(
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFF6F6F8),
+                          border: Border.all(
+                            width: 1.0,
+                          ),
+                        ),
+                        child: Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'Panel Discussion',
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 13.0,
+                                    ),
+                          ),
                         ),
                       ),
-                      child: Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Text(
-                          'Intermediate',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Montserrat',
-                                    fontSize: 13.0,
-                                  ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFF6F6F8),
                         ),
                       ),
                     ),

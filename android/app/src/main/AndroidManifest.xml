@@ -5,7 +5,7 @@
 
 
     <application
-        android:label="DroidConKe Flutter Flow Version"
+        android:label="DroidconKe2023FlutterFlow"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
@@ -45,7 +45,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="droidconkeflutterflowversion" android:host="droidconkeflutterflowversion.com" />
+                <data android:scheme="droidconke2023flutterflow" android:host="droidconke2023flutterflow.com" />
             </intent-filter>
 
         </activity>
