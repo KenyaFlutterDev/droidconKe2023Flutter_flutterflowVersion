@@ -4,7 +4,6 @@ import '/src/widgets/all_speakers_component/all_speakers_component_widget.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'all_speakers_page_model.dart';
 export 'all_speakers_page_model.dart';

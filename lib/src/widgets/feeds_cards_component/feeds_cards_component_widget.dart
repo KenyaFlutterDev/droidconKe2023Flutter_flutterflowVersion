@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/src/modals/share_modal/share_modal_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'feeds_cards_component_model.dart';
 export 'feeds_cards_component_model.dart';
