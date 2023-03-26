@@ -7,12 +7,9 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-import 'feedback_dialog_model.dart';
-export 'feedback_dialog_model.dart';
+// import 'feedback_dialog_model.dart';
+// export 'feedback_dialog_model.dart';
 
 class FeedbackActionDialog extends StatefulWidget {
   const FeedbackActionDialog({

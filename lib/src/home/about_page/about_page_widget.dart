@@ -5,7 +5,6 @@ import '/src/widgets/organisedby_component/organisedby_component_widget.dart';
 import '/src/widgets/organizers_component/organizers_component_widget.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'about_page_model.dart';
 export 'about_page_model.dart';

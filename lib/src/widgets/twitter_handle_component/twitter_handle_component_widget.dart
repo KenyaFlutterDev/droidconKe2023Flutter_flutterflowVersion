@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/src/widgets/outlined_icon_button/outlined_icon_button_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'twitter_handle_component_model.dart';
 export 'twitter_handle_component_model.dart';

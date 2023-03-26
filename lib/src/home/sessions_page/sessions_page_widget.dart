@@ -5,7 +5,6 @@ import '/src/widgets/session_date_component/session_date_component_widget.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sessions_page_model.dart';
 export 'sessions_page_model.dart';
@@ -124,7 +123,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                 value: _model.switchValue ??= _model.mySessions,
                                 onChanged: (newValue) async {
                                   setState(
-                                      () => _model.switchValue = newValue!);
+                                      () => _model.switchValue = newValue);
                                 },
                                 activeColor: Color(0xFFFF6E4D),
                                 inactiveTrackColor: Color(0xFF20201E),
