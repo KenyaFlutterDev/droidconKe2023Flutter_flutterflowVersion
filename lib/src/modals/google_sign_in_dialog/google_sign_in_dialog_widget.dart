@@ -1,5 +1,8 @@
+import '/auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -78,11 +81,25 @@ class _GoogleSignInDialogWidgetState extends State<GoogleSignInDialogWidget> {
             children: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 126.0, 0.0, 0.0),
-                child: Image.asset(
-                  'assets/images/btn_google_dark_normal_ios.png',
-                  width: 208.0,
-                  height: 40.0,
-                  fit: BoxFit.cover,
+                child: InkWell(
+                  onTap: () async {
+                    GoRouter.of(context).prepareAuthEvent();
+                    final user = await signInWithGoogle(context);
+                    if (user == null) {
+                      return;
+                    }
+                    setState(() {
+                      FFAppState().testingToken = '';
+                    });
+
+                    context.goNamedAuth('home_page_logged_in', mounted);
+                  },
+                  child: Image.asset(
+                    'assets/images/btn_google_dark_normal_ios.png',
+                    width: 208.0,
+                    height: 40.0,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               Text(
@@ -95,6 +112,34 @@ class _GoogleSignInDialogWidgetState extends State<GoogleSignInDialogWidget> {
                     ),
               ),
             ],
+          ),
+          FFButtonWidget(
+            onPressed: () async {
+              _model.accessTokenCopy = await actions.socialLogin();
+
+              setState(() {});
+            },
+            text: 'Button',
+            options: FFButtonOptions(
+              width: 130.0,
+              height: 40.0,
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+              color: FlutterFlowTheme.of(context).primaryColor,
+              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                    fontFamily: 'Montserrat',
+                    color: Colors.white,
+                  ),
+              borderSide: BorderSide(
+                color: Colors.transparent,
+                width: 1.0,
+              ),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+          ),
+          Text(
+            FFAppState().testingToken,
+            style: FlutterFlowTheme.of(context).bodyText1,
           ),
         ],
       ),

@@ -224,17 +224,8 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                     child: FFButtonWidget(
-                      onPressed: () async {
-                        context.pushNamed(
-                          'home_page_no_login',
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.rightToLeft,
-                              duration: Duration(milliseconds: 2000),
-                            ),
-                          },
-                        );
+                      onPressed: () {
+                        print('Button pressed ...');
                       },
                       text: 'SIGN IN',
                       options: FFButtonOptions(

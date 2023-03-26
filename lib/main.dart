@@ -119,58 +119,64 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'home_page_logged_in': HomePageLoggedInWidget(),
       'feeds_page': FeedsPageWidget(),
-      'about_page': AboutPageWidget(),
       'sessions_page': SessionsPageWidget(),
+      'about_page': AboutPageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
     return Scaffold(
       body: _currentPage ?? tabs[_currentPageName],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (i) => setState(() {
-          _currentPage = null;
-          _currentPageName = tabs.keys.toList()[i];
-        }),
-        backgroundColor: Colors.white,
-        selectedItemColor: FlutterFlowTheme.of(context).primaryColor,
-        unselectedItemColor: FlutterFlowTheme.of(context).primaryText,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.home,
-              size: 24.0,
+      bottomNavigationBar: Visibility(
+        visible: responsiveVisibility(
+          context: context,
+          desktop: false,
+        ),
+        child: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (i) => setState(() {
+            _currentPage = null;
+            _currentPageName = tabs.keys.toList()[i];
+          }),
+          backgroundColor: Colors.white,
+          selectedItemColor: FlutterFlowTheme.of(context).primaryColor,
+          unselectedItemColor: FlutterFlowTheme.of(context).primaryText,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+          type: BottomNavigationBarType.fixed,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: FaIcon(
+                FontAwesomeIcons.home,
+                size: 24.0,
+              ),
+              label: 'Home',
+              tooltip: '',
             ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.solidBell,
-              size: 24.0,
+            BottomNavigationBarItem(
+              icon: FaIcon(
+                FontAwesomeIcons.solidBell,
+                size: 24.0,
+              ),
+              label: 'Feed',
+              tooltip: '',
             ),
-            label: 'Feed',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.star_sharp,
-              size: 24.0,
+            BottomNavigationBarItem(
+              icon: FaIcon(
+                FontAwesomeIcons.solidClock,
+                size: 24.0,
+              ),
+              label: 'Sessions',
+              tooltip: '',
             ),
-            label: 'About',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.solidClock,
-              size: 24.0,
-            ),
-            label: 'Sessions',
-            tooltip: '',
-          )
-        ],
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.star_sharp,
+                size: 24.0,
+              ),
+              label: 'About',
+              tooltip: '',
+            )
+          ],
+        ),
       ),
     );
   }

@@ -65,6 +65,11 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                       child: HeaderComponentWidget(),
                     ),
                   ),
+                  SelectionArea(
+                      child: Text(
+                    FFAppState().testingToken,
+                    style: FlutterFlowTheme.of(context).bodyText1,
+                  )),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                     child: Container(
