@@ -75,6 +75,7 @@ class _FeedsCardsComponentWidgetState extends State<FeedsCardsComponentWidget> {
                     await showModalBottomSheet(
                       isScrollControlled: true,
                       backgroundColor: Colors.transparent,
+                      barrierColor: Color(0x00000000),
                       enableDrag: false,
                       context: context,
                       builder: (context) {

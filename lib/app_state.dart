@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'flutter_flow/lat_lng.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static final FFAppState _instance = FFAppState._internal();
@@ -18,6 +19,8 @@ class FFAppState extends ChangeNotifier {
     _listLinks = prefs.getStringList('ff_listLinks') ?? _listLinks;
     _sessionListToggle =
         prefs.getBool('ff_sessionListToggle') ?? _sessionListToggle;
+    _appToken = prefs.getString('ff_appToken') ?? _appToken;
+    _testingToken = prefs.getString('ff_testingToken') ?? _testingToken;
   }
 
   void update(VoidCallback callback) {
@@ -57,6 +60,20 @@ class FFAppState extends ChangeNotifier {
   set sessionListToggle(bool _value) {
     _sessionListToggle = _value;
     prefs.setBool('ff_sessionListToggle', _value);
+  }
+
+  String _appToken = '';
+  String get appToken => _appToken;
+  set appToken(String _value) {
+    _appToken = _value;
+    prefs.setString('ff_appToken', _value);
+  }
+
+  String _testingToken = '';
+  String get testingToken => _testingToken;
+  set testingToken(String _value) {
+    _testingToken = _value;
+    prefs.setString('ff_testingToken', _value);
   }
 }
 

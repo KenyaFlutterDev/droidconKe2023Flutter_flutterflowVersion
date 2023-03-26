@@ -151,29 +151,15 @@ class _ResetPasswordConfirmationPageWidgetState
             ),
             Align(
               alignment: AlignmentDirectional(0.0, 0.0),
-              child: InkWell(
-                onTap: () async {
-                  context.pushNamed(
-                    'sign_in_page',
-                    extra: <String, dynamic>{
-                      kTransitionInfoKey: TransitionInfo(
-                        hasTransition: true,
-                        transitionType: PageTransitionType.leftToRight,
-                        duration: Duration(milliseconds: 2000),
-                      ),
-                    },
-                  );
-                },
-                child: Text(
-                  'Back to Sign in',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Montserrat',
-                        color: Color(0xFFFF6E4D),
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
-                      ),
-                ),
+              child: Text(
+                'Back to Sign in',
+                style: FlutterFlowTheme.of(context).bodyText1.override(
+                      fontFamily: 'Montserrat',
+                      color: Color(0xFFFF6E4D),
+                      fontSize: 13.0,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                    ),
               ),
             ),
           ],

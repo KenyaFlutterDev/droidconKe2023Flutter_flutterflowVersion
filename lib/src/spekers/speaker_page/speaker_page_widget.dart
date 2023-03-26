@@ -191,7 +191,7 @@ class _SpeakerPageWidgetState extends State<SpeakerPageWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 25.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
               child: InkWell(
                 onTap: () async {
                   context.safePop();

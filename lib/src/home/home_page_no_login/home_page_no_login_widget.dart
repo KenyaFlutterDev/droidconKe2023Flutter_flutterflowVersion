@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/src/modals/google_sign_in_dialog/google_sign_in_dialog_widget.dart';
 import '/src/widgets/organisedby_component/organisedby_component_widget.dart';
 import '/src/widgets/sponsors_component/sponsors_component_widget.dart';
 import 'package:flutter/material.dart';
@@ -71,17 +72,23 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                         ),
                         child: InkWell(
                           onTap: () async {
-                            context.pushNamed(
-                              'home_page_logged_in',
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType:
-                                      PageTransitionType.rightToLeft,
-                                  duration: Duration(milliseconds: 2000),
-                                ),
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              barrierColor: Color(0x00000000),
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return Padding(
+                                  padding: MediaQuery.of(context).viewInsets,
+                                  child: GoogleSignInDialogWidget(),
+                                );
                               },
-                            );
+                            ).then((value) => setState(() {}));
+
+                            await Future.delayed(
+                                const Duration(milliseconds: 1000));
+                            context.safePop();
                           },
                           child: Icon(
                             Icons.lock,

@@ -1,3 +1,4 @@
+import '/auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -101,16 +102,25 @@ class _HeaderComponentWidgetState extends State<HeaderComponentWidget> {
                 ),
               ),
             ),
-            Container(
-              width: 30.0,
-              height: 30.0,
-              clipBehavior: Clip.antiAlias,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-              ),
-              child: Image.asset(
-                'assets/images/IMG_5630.png',
-                fit: BoxFit.cover,
+            InkWell(
+              onTap: () async {
+                GoRouter.of(context).prepareAuthEvent();
+                await signOut();
+                GoRouter.of(context).clearRedirectLocation();
+
+                context.goNamedAuth('home_page_no_login', mounted);
+              },
+              child: Container(
+                width: 30.0,
+                height: 30.0,
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                ),
+                child: Image.asset(
+                  'assets/images/IMG_5630.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ],

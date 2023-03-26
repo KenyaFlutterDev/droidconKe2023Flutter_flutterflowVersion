@@ -29,16 +29,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await Future.delayed(const Duration(milliseconds: 3000));
 
-      context.goNamed(
-        'sign_in_up_page',
-        extra: <String, dynamic>{
-          kTransitionInfoKey: TransitionInfo(
-            hasTransition: true,
-            transitionType: PageTransitionType.rightToLeft,
-            duration: Duration(milliseconds: 1000),
-          ),
-        },
-      );
+      context.pushNamed('home_page_no_login');
     });
   }
 

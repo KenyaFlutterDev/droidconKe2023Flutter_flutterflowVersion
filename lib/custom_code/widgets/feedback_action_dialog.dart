@@ -2,17 +2,14 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom widgets
+import '/custom_code/actions/index.dart'; // Imports custom actions
 import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+// Imports other custom widgets
 
-import 'feedback_dialog_model.dart';
-export 'feedback_dialog_model.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 
 class FeedbackActionDialog extends StatefulWidget {
   const FeedbackActionDialog({
@@ -40,7 +37,9 @@ class _FeedbackActionDialogState extends State<FeedbackActionDialog> {
             context: context,
             builder: (alertDialogContext) {
               return AlertDialog(
-                title: Text('bjb'),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
                 content: Container(
                   width: 315.0,
                   height: 367.0,
@@ -89,7 +88,7 @@ class _FeedbackActionDialogState extends State<FeedbackActionDialog> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 26.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            context.safePop();
+                            Navigator.pop(context);
                           },
                           text: 'Okay',
                           options: FFButtonOptions(
@@ -117,12 +116,6 @@ class _FeedbackActionDialogState extends State<FeedbackActionDialog> {
                     ],
                   ),
                 ),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
               );
             },
           );
