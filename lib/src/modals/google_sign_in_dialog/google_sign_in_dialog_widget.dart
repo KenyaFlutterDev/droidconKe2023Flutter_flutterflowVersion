@@ -1,7 +1,5 @@
-import '/auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -83,16 +81,12 @@ class _GoogleSignInDialogWidgetState extends State<GoogleSignInDialogWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 126.0, 0.0, 0.0),
                 child: InkWell(
                   onTap: () async {
-                    GoRouter.of(context).prepareAuthEvent();
-                    final user = await signInWithGoogle(context);
-                    if (user == null) {
-                      return;
-                    }
+                    _model.accessToken = await actions.socialLogin();
                     setState(() {
-                      FFAppState().testingToken = '';
+                      FFAppState().testingToken = _model.accessToken!;
                     });
 
-                    context.goNamedAuth('home_page_logged_in', mounted);
+                    setState(() {});
                   },
                   child: Image.asset(
                     'assets/images/btn_google_dark_normal_ios.png',
@@ -112,30 +106,6 @@ class _GoogleSignInDialogWidgetState extends State<GoogleSignInDialogWidget> {
                     ),
               ),
             ],
-          ),
-          FFButtonWidget(
-            onPressed: () async {
-              _model.accessTokenCopy = await actions.socialLogin();
-
-              setState(() {});
-            },
-            text: 'Button',
-            options: FFButtonOptions(
-              width: 130.0,
-              height: 40.0,
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-              color: FlutterFlowTheme.of(context).primaryColor,
-              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                    fontFamily: 'Montserrat',
-                    color: Colors.white,
-                  ),
-              borderSide: BorderSide(
-                color: Colors.transparent,
-                width: 1.0,
-              ),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
           ),
           Text(
             FFAppState().testingToken,
