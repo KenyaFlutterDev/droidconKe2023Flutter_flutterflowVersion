@@ -51,6 +51,27 @@ class SocialLoginCall {
       cache: false,
     );
   }
+
+  dynamic token(dynamic response) => getJsonField(
+        response,
+        r'''$.token''',
+      );
+  dynamic user(dynamic response) => getJsonField(
+        response,
+        r'''$.user''',
+      );
+  dynamic name(dynamic response) => getJsonField(
+        response,
+        r'''$.user.name''',
+      );
+  dynamic email(dynamic response) => getJsonField(
+        response,
+        r'''$.user.email''',
+      );
+  dynamic avatar(dynamic response) => getJsonField(
+        response,
+        r'''$.user.avatar''',
+      );
 }
 
 class OrganizingTeamCall {

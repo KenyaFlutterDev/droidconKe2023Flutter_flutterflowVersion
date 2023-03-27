@@ -4,6 +4,7 @@ import '/src/widgets/sesion_header_component/sesion_header_component_widget.dart
 import '/src/widgets/session_date_component/session_date_component_widget.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import '../flutter_flow_theme.dart';
@@ -89,6 +90,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'home_page_logged_in',
           path: '/homePageLoggedIn',
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'home_page_logged_in')
               : HomePageLoggedInWidget(),
@@ -96,6 +98,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'feeds_page',
           path: '/feedsPage',
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'feeds_page')
               : FeedsPageWidget(),
@@ -103,6 +106,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'about_page',
           path: '/aboutPage',
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'about_page')
               : AboutPageWidget(),
@@ -110,6 +114,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'sessions_page',
           path: '/sessionsPage',
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'sessions_page')
               : SessionsPageWidget(),
@@ -117,41 +122,49 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'speaker_page',
           path: '/speakerPage',
+          requireAuth: true,
           builder: (context, params) => SpeakerPageWidget(),
         ),
         FFRoute(
           name: 'session_details_page',
           path: '/sessionDetailsPage',
+          requireAuth: true,
           builder: (context, params) => SessionDetailsPageWidget(),
         ),
         FFRoute(
           name: 'feedback_page',
           path: '/feedbackPage',
+          requireAuth: true,
           builder: (context, params) => FeedbackPageWidget(),
         ),
         FFRoute(
           name: 'all_speakers_page',
           path: '/allSpeakersPage',
+          requireAuth: true,
           builder: (context, params) => AllSpeakersPageWidget(),
         ),
         FFRoute(
           name: 'reset_password_confirmation_page',
           path: '/resetPasswordConfirmationPage',
+          requireAuth: true,
           builder: (context, params) => ResetPasswordConfirmationPageWidget(),
         ),
         FFRoute(
           name: 'reset_password_page',
           path: '/resetPasswordPage',
+          requireAuth: true,
           builder: (context, params) => ResetPasswordPageWidget(),
         ),
         FFRoute(
           name: 'sign_in_page',
           path: '/signInPage',
+          requireAuth: true,
           builder: (context, params) => SignInPageWidget(),
         ),
         FFRoute(
           name: 'sign_in_up_page',
           path: '/signInUpPage',
+          requireAuth: true,
           builder: (context, params) => SignInUpPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
@@ -341,8 +354,9 @@ class FFRoute {
                   child: SizedBox(
                     width: 50.0,
                     height: 50.0,
-                    child: CircularProgressIndicator(
+                    child: SpinKitDoubleBounce(
                       color: FlutterFlowTheme.of(context).primaryColor,
+                      size: 50.0,
                     ),
                   ),
                 )
