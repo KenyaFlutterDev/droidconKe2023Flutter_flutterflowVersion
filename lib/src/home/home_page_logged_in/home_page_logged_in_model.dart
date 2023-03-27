@@ -7,6 +7,7 @@ import '/src/widgets/speakers_component/speakers_component_widget.dart';
 import '/src/widgets/sponsors_component/sponsors_component_widget.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';

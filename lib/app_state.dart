@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
+import 'dart:convert';
 
 class FFAppState extends ChangeNotifier {
   static final FFAppState _instance = FFAppState._internal();
@@ -21,6 +22,13 @@ class FFAppState extends ChangeNotifier {
         prefs.getBool('ff_sessionListToggle') ?? _sessionListToggle;
     _appToken = prefs.getString('ff_appToken') ?? _appToken;
     _testingToken = prefs.getString('ff_testingToken') ?? _testingToken;
+    if (prefs.containsKey('ff_user')) {
+      try {
+        _user = jsonDecode(prefs.getString('ff_user') ?? '');
+      } catch (e) {
+        print("Can't decode persisted json. Error: $e.");
+      }
+    }
   }
 
   void update(VoidCallback callback) {
@@ -74,6 +82,13 @@ class FFAppState extends ChangeNotifier {
   set testingToken(String _value) {
     _testingToken = _value;
     prefs.setString('ff_testingToken', _value);
+  }
+
+  dynamic _user;
+  dynamic get user => _user;
+  set user(dynamic _value) {
+    _user = _value;
+    prefs.setString('ff_user', jsonEncode(_value));
   }
 }
 
