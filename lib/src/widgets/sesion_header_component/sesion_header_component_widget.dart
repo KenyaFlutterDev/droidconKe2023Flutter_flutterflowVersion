@@ -130,7 +130,7 @@ class _SesionHeaderComponentWidgetState
                     children: [
                       Text(
                         'Filter',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               color: Color(0xFF000CEB),
                               fontSize: 18.0,

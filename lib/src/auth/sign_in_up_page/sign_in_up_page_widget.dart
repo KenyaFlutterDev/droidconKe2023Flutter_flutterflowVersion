@@ -90,7 +90,7 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                       ),
                       Text(
                         'Sign in with Google',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               color: Color(0xFF191D1D),
                               fontSize: 14.0,
@@ -104,7 +104,7 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 21.0, 0.0, 0.0),
                     child: Text(
                       '- OR -',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             fontSize: 13.0,
                           ),
@@ -118,8 +118,8 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Username',
-                        labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                        hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                        labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                        hintStyle: FlutterFlowTheme.of(context).bodySmall,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color:
@@ -155,7 +155,7 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                         contentPadding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 0.0, 24.0),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       maxLines: null,
                       keyboardType: TextInputType.emailAddress,
                       validator: _model.usernameControllerValidator
@@ -170,8 +170,8 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Email address',
-                        labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                        hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                        labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                        hintStyle: FlutterFlowTheme.of(context).bodySmall,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color:
@@ -207,7 +207,7 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                         contentPadding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 0.0, 24.0),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       maxLines: null,
                       keyboardType: TextInputType.emailAddress,
                       validator: _model.emailAddressControllerValidator
@@ -222,8 +222,8 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                       obscureText: !_model.passwordVisibility1,
                       decoration: InputDecoration(
                         labelText: 'Password',
-                        labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                        hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                        labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                        hintStyle: FlutterFlowTheme.of(context).bodySmall,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color:
@@ -273,7 +273,7 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                           ),
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       validator: _model.passwordController1Validator
                           .asValidator(context),
                     ),
@@ -286,8 +286,8 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                       obscureText: !_model.passwordVisibility2,
                       decoration: InputDecoration(
                         labelText: 'Confirm Password',
-                        labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                        hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                        labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                        hintStyle: FlutterFlowTheme.of(context).bodySmall,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color:
@@ -337,7 +337,7 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                           ),
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       validator: _model.passwordController2Validator
                           .asValidator(context),
                     ),
@@ -361,7 +361,7 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                               0.0, 0.0, 0.0, 0.0),
                           color: Colors.black,
                           textStyle: FlutterFlowTheme.of(context)
-                              .subtitle1
+                              .titleMedium
                               .override(
                                 fontFamily: 'Montserrat',
                                 color:
@@ -383,7 +383,7 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
                     child: Text(
                       'Already have an account!',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             fontSize: 11.0,
                           ),
@@ -398,7 +398,7 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                       },
                       child: Text(
                         'Sign in',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               color: Color(0xFFFF6E4D),
                               fontSize: 13.0,
@@ -432,7 +432,7 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(21.78, 26.0, 0.0, 0.0),
                     child: Text(
                       'Sign up',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             color: Colors.white,
                             fontSize: 18.0,

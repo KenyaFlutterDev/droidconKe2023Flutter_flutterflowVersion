@@ -69,7 +69,7 @@ class _ResetPasswordConfirmationPageWidgetState
                           EdgeInsetsDirectional.fromSTEB(21.78, 0.0, 0.0, 0.0),
                       child: Text(
                         'Reset password',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               color: FlutterFlowTheme.of(context).primaryText,
                               fontSize: 18.0,
@@ -98,7 +98,7 @@ class _ResetPasswordConfirmationPageWidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 89.2, 0.0, 0.0),
                 child: Text(
                   'Password reset link has been sent to',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Montserrat',
                         fontSize: 14.0,
                       ),
@@ -111,7 +111,7 @@ class _ResetPasswordConfirmationPageWidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 13.0, 0.0, 0.0),
                 child: Text(
                   'John@doe.com',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Montserrat',
                         color: Color(0xFFFF6E4D),
                         fontSize: 26.0,
@@ -135,7 +135,9 @@ class _ResetPasswordConfirmationPageWidgetState
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: Color(0xFF7DE1C3),
-                    textStyle: FlutterFlowTheme.of(context).subtitle1.override(
+                    textStyle: FlutterFlowTheme.of(context)
+                        .titleMedium
+                        .override(
                           fontFamily: 'Montserrat',
                           color: FlutterFlowTheme.of(context).primaryBtnText,
                           fontSize: 16.0,
@@ -154,7 +156,7 @@ class _ResetPasswordConfirmationPageWidgetState
               alignment: AlignmentDirectional(0.0, 0.0),
               child: Text(
                 'Back to Sign in',
-                style: FlutterFlowTheme.of(context).bodyText1.override(
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Montserrat',
                       color: Color(0xFFFF6E4D),
                       fontSize: 13.0,

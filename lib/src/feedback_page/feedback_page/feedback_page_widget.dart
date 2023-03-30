@@ -73,7 +73,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                             child: Text(
                               'Your feedback helps us improve',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color: Color(0xFF000CEB),
@@ -105,7 +105,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                     child: Text(
                                       'How is/was the event',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                                          .bodyMedium,
                                     ),
                                   ),
                                   Padding(
@@ -135,7 +135,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                                   '😔',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             'Montserrat',
@@ -151,7 +151,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                                   'Bad',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             'Montserrat',
@@ -183,7 +183,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                                   '😐',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             'Montserrat',
@@ -199,7 +199,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                                   'Okay',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             'Montserrat',
@@ -231,7 +231,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                                   '😊',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             'Montserrat',
@@ -247,7 +247,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                                   'Great',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             'Montserrat',
@@ -282,7 +282,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                       decoration: InputDecoration(
                         hintText: 'Type message here',
                         hintStyle:
-                            FlutterFlowTheme.of(context).bodyText2.override(
+                            FlutterFlowTheme.of(context).bodySmall.override(
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w300,
                                   lineHeight: 2.0,
@@ -318,7 +318,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                         filled: true,
                         fillColor: Color(0xFFF5F5F5),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             fontSize: 14.0,
                             fontWeight: FontWeight.w300,
@@ -360,7 +360,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                           EdgeInsetsDirectional.fromSTEB(21.78, 0.0, 0.0, 0.0),
                       child: Text(
                         'Feedback',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               color: Colors.white,
                               fontSize: 18.0,

@@ -73,7 +73,7 @@ class _SessionsCardComponentWidgetState
               padding: EdgeInsetsDirectional.fromSTEB(10.0, 15.2, 10.0, 0.0),
               child: Text(
                 'Transforming Famers Lives Using Android in Kenya',
-                style: FlutterFlowTheme.of(context).bodyText1.override(
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Montserrat',
                       fontSize: 14.0,
                       fontWeight: FontWeight.bold,
@@ -87,7 +87,7 @@ class _SessionsCardComponentWidgetState
                 children: [
                   Text(
                     '@10:30',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           color: Color(0xFF707070),
                           fontSize: 11.0,
@@ -102,7 +102,7 @@ class _SessionsCardComponentWidgetState
                   ),
                   Text(
                     'Room 1',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           color: Color(0xFF707070),
                           fontSize: 11.0,

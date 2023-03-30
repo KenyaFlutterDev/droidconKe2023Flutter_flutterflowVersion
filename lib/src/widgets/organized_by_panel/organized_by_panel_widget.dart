@@ -47,7 +47,7 @@ class _OrganizedByPanelWidgetState extends State<OrganizedByPanelWidget> {
           padding: EdgeInsetsDirectional.fromSTEB(0.0, 23.0, 0.0, 0.0),
           child: Text(
             'Organised by;',
-            style: FlutterFlowTheme.of(context).bodyText1.override(
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Montserrat',
                   color: Color(0xFF000CEB),
                   fontSize: 18.0,

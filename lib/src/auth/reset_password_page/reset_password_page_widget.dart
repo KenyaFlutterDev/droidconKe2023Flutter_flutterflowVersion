@@ -70,7 +70,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                           EdgeInsetsDirectional.fromSTEB(21.78, 0.0, 0.0, 0.0),
                       child: Text(
                         'Reset password',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               color: FlutterFlowTheme.of(context).primaryText,
                               fontSize: 18.0,
@@ -100,8 +100,8 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                 obscureText: false,
                 decoration: InputDecoration(
                   labelText: 'Email address',
-                  labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                  hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                  labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                  hintStyle: FlutterFlowTheme.of(context).bodySmall,
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).primaryBackground,
@@ -135,7 +135,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                   contentPadding:
                       EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
-                style: FlutterFlowTheme.of(context).bodyText1,
+                style: FlutterFlowTheme.of(context).bodyMedium,
                 maxLines: null,
                 validator:
                     _model.emailAddressControllerValidator.asValidator(context),
@@ -166,7 +166,9 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: Colors.black,
-                    textStyle: FlutterFlowTheme.of(context).subtitle1.override(
+                    textStyle: FlutterFlowTheme.of(context)
+                        .titleMedium
+                        .override(
                           fontFamily: 'Montserrat',
                           color: FlutterFlowTheme.of(context).primaryBtnText,
                           fontSize: 16.0,
@@ -200,7 +202,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                   },
                   child: Text(
                     'Back to Sign in',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           color: Color(0xFFFF6E4D),
                           fontSize: 13.0,

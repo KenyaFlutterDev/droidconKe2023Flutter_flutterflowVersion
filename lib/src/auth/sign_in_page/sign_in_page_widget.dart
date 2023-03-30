@@ -86,7 +86,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                     ),
                     Text(
                       'Sign in with Google',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             color: Color(0xFF191D1D),
                             fontSize: 14.0,
@@ -99,7 +99,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 33.0, 0.0, 0.0),
                   child: Text(
                     '- OR -',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           fontSize: 13.0,
                         ),
@@ -113,8 +113,8 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Email address',
-                      labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                      hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                      labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                      hintStyle: FlutterFlowTheme.of(context).bodySmall,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).primaryBackground,
@@ -149,7 +149,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                       contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyText1,
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                     maxLines: null,
                     keyboardType: TextInputType.emailAddress,
                     validator: _model.emailAddressControllerValidator
@@ -164,8 +164,8 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                     obscureText: !_model.passwordVisibility,
                     decoration: InputDecoration(
                       labelText: 'Password',
-                      labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                      hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                      labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                      hintStyle: FlutterFlowTheme.of(context).bodySmall,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).primaryBackground,
@@ -214,7 +214,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                         ),
                       ),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyText1,
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                     validator:
                         _model.passwordControllerValidator.asValidator(context),
                   ),
@@ -238,7 +238,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: Colors.black,
                         textStyle: FlutterFlowTheme.of(context)
-                            .subtitle1
+                            .titleMedium
                             .override(
                               fontFamily: 'Montserrat',
                               color:
@@ -272,7 +272,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                     },
                     child: Text(
                       'Forgot Password?',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             fontSize: 11.0,
                             fontWeight: FontWeight.bold,
@@ -284,7 +284,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 72.0, 0.0, 0.0),
                   child: Text(
                     'Don’t have an account?',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           fontSize: 11.0,
                         ),
@@ -298,7 +298,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                     },
                     child: Text(
                       'Sign up',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             color: Color(0xFFFF6E4D),
                             fontSize: 13.0,
@@ -331,7 +331,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(21.78, 26.0, 0.0, 0.0),
                     child: Text(
                       'Sign in',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             color: Colors.white,
                             fontSize: 18.0,

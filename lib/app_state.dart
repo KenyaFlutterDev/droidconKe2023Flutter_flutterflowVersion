@@ -21,7 +21,6 @@ class FFAppState extends ChangeNotifier {
     _sessionListToggle =
         prefs.getBool('ff_sessionListToggle') ?? _sessionListToggle;
     _appToken = prefs.getString('ff_appToken') ?? _appToken;
-    _testingToken = prefs.getString('ff_testingToken') ?? _testingToken;
     if (prefs.containsKey('ff_user')) {
       try {
         _user = jsonDecode(prefs.getString('ff_user') ?? '');
@@ -75,13 +74,6 @@ class FFAppState extends ChangeNotifier {
   set appToken(String _value) {
     _appToken = _value;
     prefs.setString('ff_appToken', _value);
-  }
-
-  String _testingToken = '';
-  String get testingToken => _testingToken;
-  set testingToken(String _value) {
-    _testingToken = _value;
-    prefs.setString('ff_testingToken', _value);
   }
 
   dynamic _user;

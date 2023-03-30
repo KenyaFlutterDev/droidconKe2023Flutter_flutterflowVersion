@@ -83,7 +83,7 @@ class _ShareModalWidgetState extends State<ShareModalWidget> {
                     ),
                     Text(
                       'Share',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             color: FlutterFlowTheme.of(context).primaryText,
                             fontSize: 18.0,
@@ -94,7 +94,7 @@ class _ShareModalWidgetState extends State<ShareModalWidget> {
                 ),
                 Text(
                   'CANCEL',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Montserrat',
                         color: Color(0xFF707070),
                       ),
@@ -132,7 +132,7 @@ class _ShareModalWidgetState extends State<ShareModalWidget> {
                             Text(
                               'Twitter',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context)
@@ -164,7 +164,7 @@ class _ShareModalWidgetState extends State<ShareModalWidget> {
                             Text(
                               'Facebook',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context)
@@ -205,7 +205,7 @@ class _ShareModalWidgetState extends State<ShareModalWidget> {
                             Text(
                               'WhatsApp',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context)
@@ -237,7 +237,7 @@ class _ShareModalWidgetState extends State<ShareModalWidget> {
                             Text(
                               'Telegram',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context)

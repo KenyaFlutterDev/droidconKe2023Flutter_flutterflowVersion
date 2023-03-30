@@ -8,7 +8,12 @@ import 'all_speakers_component_model.dart';
 export 'all_speakers_component_model.dart';
 
 class AllSpeakersComponentWidget extends StatefulWidget {
-  const AllSpeakersComponentWidget({Key? key}) : super(key: key);
+  const AllSpeakersComponentWidget({
+    Key? key,
+    this.speaker,
+  }) : super(key: key);
+
+  final dynamic speaker;
 
   @override
   _AllSpeakersComponentWidgetState createState() =>
@@ -67,8 +72,11 @@ class _AllSpeakersComponentWidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12.0),
-                  child: Image.asset(
-                    'assets/images/Screenshot_2022-11-10_at_20.58.45_2_90.png',
+                  child: Image.network(
+                    getJsonField(
+                      widget.speaker,
+                      r'''$.avatar''',
+                    ),
                     width: 74.0,
                     height: 74.0,
                     fit: BoxFit.cover,
@@ -79,8 +87,12 @@ class _AllSpeakersComponentWidgetState
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 13.43, 0.0, 0.0),
               child: Text(
-                'Eric Muli',
-                style: FlutterFlowTheme.of(context).bodyText1.override(
+                getJsonField(
+                  widget.speaker,
+                  r'''$.name''',
+                ).toString(),
+                textAlign: TextAlign.center,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Montserrat',
                       color: Color(0xFF000CEB),
                       fontSize: 14.0,
@@ -96,7 +108,7 @@ class _AllSpeakersComponentWidgetState
                 child: Text(
                   'Kenya Partner Lead at droidcon Berlin | Android | Kotlin | Flutter | C++',
                   textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Montserrat',
                         color: Color(0xFF707070),
                         fontSize: 11.0,
@@ -128,7 +140,7 @@ class _AllSpeakersComponentWidgetState
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).secondary,
                         width: 5.0,
                       ),
                     ),
@@ -140,11 +152,10 @@ class _AllSpeakersComponentWidgetState
                         child: Text(
                           'SESSION',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: 'Montserrat',
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryColor,
+                                color: FlutterFlowTheme.of(context).secondary,
                                 fontWeight: FontWeight.w600,
                               ),
                         ),

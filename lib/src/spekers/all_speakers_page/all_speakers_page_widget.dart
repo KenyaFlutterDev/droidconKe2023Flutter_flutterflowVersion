@@ -1,7 +1,8 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/src/widgets/all_speakers_component/all_speakers_component_widget.dart';
-import '/flutter_flow/random_data_util.dart' as random_data;
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -77,7 +78,7 @@ class _AllSpeakersPageWidgetState extends State<AllSpeakersPageWidget> {
                               child: Text(
                                 'Speakers',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: Color(0xFF20201E),
@@ -96,28 +97,72 @@ class _AllSpeakersPageWidgetState extends State<AllSpeakersPageWidget> {
                 child: Padding(
                   padding:
                       EdgeInsetsDirectional.fromSTEB(20.0, 36.38, 20.0, 0.0),
-                  child: Builder(
-                    builder: (context) {
-                      final rfhrh = List.generate(
-                              random_data.randomInteger(0, 20),
-                              (index) => random_data.randomInteger(15, 20))
-                          .toList()
-                          .take(20)
-                          .toList();
-                      return GridView.builder(
-                        padding: EdgeInsets.zero,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 10.0,
-                          mainAxisSpacing: 10.0,
-                          childAspectRatio: 0.61,
-                        ),
-                        scrollDirection: Axis.vertical,
-                        itemCount: rfhrh.length,
-                        itemBuilder: (context, rfhrhIndex) {
-                          final rfhrhItem = rfhrh[rfhrhIndex];
-                          return AllSpeakersComponentWidget(
-                            key: Key('Key8uh_${rfhrhIndex}_of_${rfhrh.length}'),
+                  child: FutureBuilder<ApiCallResponse>(
+                    future: _model
+                        .allSpeakers(
+                      requestFn: () => DroidConKeAPIGroup.speakersCall.call(
+                        perPage: 25,
+                      ),
+                    )
+                        .then((result) {
+                      _model.apiRequestCompleted = true;
+                      return result;
+                    }),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: SpinKitDoubleBounce(
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 50.0,
+                            ),
+                          ),
+                        );
+                      }
+                      final gridViewSpeakersResponse = snapshot.data!;
+                      return Builder(
+                        builder: (context) {
+                          final allSpeakers = DroidConKeAPIGroup.speakersCall
+                                  .speakersData(
+                                    gridViewSpeakersResponse.jsonBody,
+                                  )
+                                  ?.toList() ??
+                              [];
+                          return RefreshIndicator(
+                            onRefresh: () async {
+                              setState(() {
+                                _model.clearAllSpeakersCache();
+                                _model.apiRequestCompleted = false;
+                              });
+                              await _model.waitForApiRequestCompleted();
+                            },
+                            child: GridView.builder(
+                              padding: EdgeInsets.zero,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 10.0,
+                                mainAxisSpacing: 10.0,
+                                childAspectRatio: 0.61,
+                              ),
+                              scrollDirection: Axis.vertical,
+                              itemCount: allSpeakers.length,
+                              itemBuilder: (context, allSpeakersIndex) {
+                                final allSpeakersItem =
+                                    allSpeakers[allSpeakersIndex];
+                                return AllSpeakersComponentWidget(
+                                  key: Key(
+                                      'Key8uh_${allSpeakersIndex}_of_${allSpeakers.length}'),
+                                  speaker: getJsonField(
+                                    allSpeakersItem,
+                                    r'''$''',
+                                  ),
+                                );
+                              },
+                            ),
                           );
                         },
                       );

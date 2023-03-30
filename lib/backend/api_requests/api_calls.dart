@@ -185,6 +185,52 @@ class SpeakersCall {
       cache: false,
     );
   }
+
+  dynamic speakersData(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      );
+  dynamic speakerName(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].name''',
+        true,
+      );
+  dynamic speakerTagline(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].tagline''',
+        true,
+      );
+  dynamic speakerBiography(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].biography''',
+        true,
+      );
+  dynamic speakerAvatar(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].avatar''',
+        true,
+      );
+  dynamic speakersPerPage(dynamic response) => getJsonField(
+        response,
+        r'''$.meta.paginator.per_page''',
+      );
+  dynamic speakerNextPage(dynamic response) => getJsonField(
+        response,
+        r'''$.meta.paginator.next_page''',
+      );
+  dynamic speakerCurrentPage(dynamic response) => getJsonField(
+        response,
+        r'''$.meta.paginator.current_page''',
+      );
+  dynamic speakersHasMorePages(dynamic response) => getJsonField(
+        response,
+        r'''$.meta.paginator.has_more_pages''',
+      );
+  dynamic speakerNextPageUrl(dynamic response) => getJsonField(
+        response,
+        r'''$.meta.paginator.next_page_url''',
+      );
 }
 
 class EventSponsorsCall {

@@ -71,7 +71,7 @@ class _OrganizersComponentWidgetState extends State<OrganizersComponentWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
             child: Text(
               'Eric Muli',
-              style: FlutterFlowTheme.of(context).bodyText1.override(
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Montserrat',
                     fontSize: 14.0,
                   ),
@@ -81,7 +81,7 @@ class _OrganizersComponentWidgetState extends State<OrganizersComponentWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
             child: Text(
               'The Chief',
-              style: FlutterFlowTheme.of(context).bodyText1.override(
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Montserrat',
                     color: Color(0xFF707070),
                     fontSize: 11.0,

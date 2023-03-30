@@ -73,7 +73,7 @@ class _SessionDateComponentWidgetState
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
               child: Text(
                 widget.date,
-                style: FlutterFlowTheme.of(context).bodyText1.override(
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Montserrat',
                       color: widget.dateColor,
                       fontSize: 18.0,
@@ -83,7 +83,7 @@ class _SessionDateComponentWidgetState
             ),
             Text(
               widget.day,
-              style: FlutterFlowTheme.of(context).bodyText1.override(
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Montserrat',
                     color: widget.dayColor,
                     fontSize: 11.0,
