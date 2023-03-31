@@ -137,7 +137,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                               child: Text(
                                 'My Sessions',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: Color(0xFF707070),
@@ -158,7 +158,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 18.88, 0.0, 0.0),
                   child: Text(
                     _model.switchValue! ? 'My Session' : 'All Sessions',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           color: Color(0xFF000CEB),
                           fontSize: 18.0,
@@ -239,7 +239,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                     '9:00',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
@@ -252,7 +252,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                     'AM',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
@@ -270,7 +270,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                     'Keynote',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
@@ -299,7 +299,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1,
+                                                                .bodyMedium,
                                                       ),
                                                     ),
                                                   ),
@@ -316,7 +316,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                           '9.00AM - 9:30AM',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Montserrat',
@@ -338,7 +338,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                           'Room 1',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Montserrat',
@@ -378,7 +378,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                             'Greg Fawson',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Montserrat',
@@ -537,7 +537,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                 '@10:30',
                                                 style: FlutterFlowTheme.of(
                                                         context)
-                                                    .bodyText1
+                                                    .bodyMedium
                                                     .override(
                                                       fontFamily: 'Montserrat',
                                                       color: Color(0xFF707070),
@@ -555,7 +555,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                 'Room 1',
                                                 style: FlutterFlowTheme.of(
                                                         context)
-                                                    .bodyText1
+                                                    .bodyMedium
                                                     .override(
                                                       fontFamily: 'Montserrat',
                                                       color: Color(0xFF707070),
@@ -572,7 +572,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                           child: Text(
                                             'Transforming Famers Lives Using Android in Kenya',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Montserrat',
                                                   fontSize: 14.0,
@@ -611,7 +611,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryColor,
+                                                              .secondary,
                                                           shape:
                                                               BoxShape.circle,
                                                         ),
@@ -659,7 +659,7 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryColor,
+                                                              .secondary,
                                                           shape:
                                                               BoxShape.circle,
                                                         ),

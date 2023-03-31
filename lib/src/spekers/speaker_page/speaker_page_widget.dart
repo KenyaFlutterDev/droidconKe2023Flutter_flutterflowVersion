@@ -80,7 +80,7 @@ class _SpeakerPageWidgetState extends State<SpeakerPageWidget> {
                               child: Text(
                                 'Speaker',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: Color(0xFFFF6E4D),
@@ -93,13 +93,14 @@ class _SpeakerPageWidgetState extends State<SpeakerPageWidget> {
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             'Eric Muli',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Montserrat',
-                                      color: Color(0xFF000CEB),
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: Color(0xFF000CEB),
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                           ),
                         ),
                         Align(
@@ -116,7 +117,7 @@ class _SpeakerPageWidgetState extends State<SpeakerPageWidget> {
                                   'Kenya Partner Lead at droidcon Berlin | Android | Kotlin | Flutter | C++',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Color(0xFF707070),
@@ -135,11 +136,10 @@ class _SpeakerPageWidgetState extends State<SpeakerPageWidget> {
                           child: Text(
                             'Bio',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: 'Montserrat',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -150,7 +150,7 @@ class _SpeakerPageWidgetState extends State<SpeakerPageWidget> {
                               0.0, 10.0, 0.0, 27.0),
                           child: Text(
                             'Worked at Intel, co-Founded Moringa School, then started @earlycamp to train young children from 5-16 on how to solve problems with technology. \n\nStarted 818interactive to tell African stories with Games to a global audience. \n\nCommunity wise I organize #Android & #Kotlin developers every month for a meetUp to chat about technology. \n\nI Lead a cool team in organizing #droidConKE the largest android developer focussed event in Sub Saharan Africa. \n\nI train people,mentor them, build things, am highly experimental, read alot and socialize vertically.',
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
                         Divider(
@@ -173,7 +173,7 @@ class _SpeakerPageWidgetState extends State<SpeakerPageWidget> {
                 width: 103.0,
                 height: 103.0,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryColor,
+                  color: FlutterFlowTheme.of(context).secondary,
                   shape: BoxShape.circle,
                 ),
                 child: Padding(
@@ -211,7 +211,7 @@ class _SpeakerPageWidgetState extends State<SpeakerPageWidget> {
                           EdgeInsetsDirectional.fromSTEB(21.78, 0.0, 0.0, 0.0),
                       child: Text(
                         'Speaker',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               color: Colors.white,
                               fontSize: 18.0,

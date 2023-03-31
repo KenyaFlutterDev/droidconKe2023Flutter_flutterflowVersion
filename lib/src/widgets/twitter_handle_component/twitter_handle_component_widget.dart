@@ -53,7 +53,7 @@ class _TwitterHandleComponentWidgetState
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 54.0, 0.0),
             child: Text(
               'Twitter Handle',
-              style: FlutterFlowTheme.of(context).bodyText1.override(
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Montserrat',
                     color: Color(0xFF20201E),
                   ),

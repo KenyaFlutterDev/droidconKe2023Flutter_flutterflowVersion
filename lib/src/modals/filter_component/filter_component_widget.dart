@@ -71,7 +71,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                     children: [
                       Text(
                         'Filter',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               color: Color(0xFF000CEB),
                               fontSize: 18.0,
@@ -91,7 +91,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                     },
                     child: Text(
                       'CANCEL',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             color: Color(0xFF707070),
                           ),
@@ -106,7 +106,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 38.0, 0.0, 11.0),
                 child: Text(
                   'Level',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Montserrat',
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
@@ -145,7 +145,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Text(
                           'Beginner',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 13.0,
                                   ),
@@ -167,7 +167,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Text(
                           'Intermediate',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 13.0,
                                   ),
@@ -195,7 +195,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Text(
                           'Expert',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 13.0,
                                   ),
@@ -212,7 +212,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 11.0),
                 child: Text(
                   'Topic',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Montserrat',
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
@@ -251,7 +251,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Text(
                           'UI UX Design',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 13.0,
                                   ),
@@ -273,7 +273,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Text(
                           'Backend',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 13.0,
                                   ),
@@ -301,7 +301,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Text(
                           'API\'s',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 13.0,
                                   ),
@@ -344,11 +344,12 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             'Flutter',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 13.0,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 13.0,
+                                ),
                           ),
                         ),
                       ),
@@ -366,11 +367,12 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             'Android',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 13.0,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 13.0,
+                                ),
                           ),
                         ),
                       ),
@@ -394,11 +396,12 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                           alignment: AlignmentDirectional(0.0, 0.05),
                           child: Text(
                             'React Native',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 13.0,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 13.0,
+                                ),
                           ),
                         ),
                       ),
@@ -413,7 +416,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 11.0),
                 child: Text(
                   'Rooms',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Montserrat',
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
@@ -451,7 +454,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Text(
                           'Room 1',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 13.0,
                                   ),
@@ -473,7 +476,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Text(
                           'Room 2',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 13.0,
                                   ),
@@ -501,7 +504,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Text(
                           'Room 3',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 13.0,
                                   ),
@@ -518,7 +521,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 11.0),
                 child: Text(
                   'Session type',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Montserrat',
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
@@ -556,7 +559,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Text(
                           'Keynote',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 13.0,
                                   ),
@@ -578,7 +581,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Text(
                           'Codelab',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 13.0,
                                   ),
@@ -606,7 +609,7 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                         child: Text(
                           'Session',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 13.0,
                                   ),
@@ -649,11 +652,12 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             'Lightning talk',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 13.0,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 13.0,
+                                ),
                           ),
                         ),
                       ),
@@ -671,11 +675,12 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             'Panel Discussion',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 13.0,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 13.0,
+                                ),
                           ),
                         ),
                       ),
@@ -706,10 +711,11 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                   iconPadding:
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: Color(0xFF000CEB),
-                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Montserrat',
                         color: Color(0xFFF6F6F8),
                       ),
+                  elevation: 2.0,
                   borderSide: BorderSide(
                     color: Colors.transparent,
                     width: 1.0,

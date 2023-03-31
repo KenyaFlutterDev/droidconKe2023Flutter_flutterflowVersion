@@ -34,7 +34,7 @@ String dateTimeFormat(String format, DateTime? dateTime, {String? locale}) {
   if (format == 'relative') {
     return timeago.format(dateTime, locale: locale);
   }
-  return DateFormat(format).format(dateTime);
+  return DateFormat(format, locale).format(dateTime);
 }
 
 Future launchURL(String url) async {

@@ -90,7 +90,7 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
                               child: Text(
                                 'Session Details',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: Color(0xFF20201E),
@@ -140,7 +140,7 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
                                       child: Text(
                                         'Speaker',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Montserrat',
                                               color: Color(0xFFFF6E4D),
@@ -155,7 +155,7 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
                                   child: Text(
                                     'Eric Muli',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: Color(0xFF000CEB),
@@ -179,13 +179,14 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
                               0.0, 25.0, 0.0, 0.0),
                           child: Text(
                             'Compose Beyond Material Design',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Montserrat',
-                                      color: Color(0xFF191D1D),
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: Color(0xFF191D1D),
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
                         ),
                         Padding(
@@ -193,11 +194,12 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
                               0.0, 15.0, 0.0, 0.0),
                           child: Text(
                             'Been in the tech industry for over 20 years. Am passionate about developer communities, motivating people and building successful',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Montserrat',
-                                      fontWeight: FontWeight.w300,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w300,
+                                ),
                           ),
                         ),
                         Padding(
@@ -233,7 +235,7 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
                                     Text(
                                       '9.30AM - 10:15AM\n',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
                                             color: Color(0xFF707070),
@@ -250,7 +252,7 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
                                     Text(
                                       'Room 1',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
                                             color: Color(0xFF707070),
@@ -273,11 +275,12 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   color: Color(0xFF191D1D),
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,

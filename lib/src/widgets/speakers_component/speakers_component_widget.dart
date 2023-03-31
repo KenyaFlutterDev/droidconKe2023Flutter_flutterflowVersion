@@ -8,7 +8,12 @@ import 'speakers_component_model.dart';
 export 'speakers_component_model.dart';
 
 class SpeakersComponentWidget extends StatefulWidget {
-  const SpeakersComponentWidget({Key? key}) : super(key: key);
+  const SpeakersComponentWidget({
+    Key? key,
+    this.speaker,
+  }) : super(key: key);
+
+  final dynamic speaker;
 
   @override
   _SpeakersComponentWidgetState createState() =>
@@ -58,8 +63,11 @@ class _SpeakersComponentWidgetState extends State<SpeakersComponentWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12.0),
-                child: Image.asset(
-                  'assets/images/Screenshot_2022-11-10_at_20.58.45_2_90.png',
+                child: Image.network(
+                  getJsonField(
+                    widget.speaker,
+                    r'''$.avatar''',
+                  ),
                   width: 74.0,
                   height: 74.0,
                   fit: BoxFit.cover,
@@ -70,8 +78,12 @@ class _SpeakersComponentWidgetState extends State<SpeakersComponentWidget> {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
             child: Text(
-              'Eric Muli',
-              style: FlutterFlowTheme.of(context).bodyText1.override(
+              getJsonField(
+                widget.speaker,
+                r'''$.name''',
+              ).toString(),
+              textAlign: TextAlign.center,
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Montserrat',
                     fontSize: 11.0,
                   ),

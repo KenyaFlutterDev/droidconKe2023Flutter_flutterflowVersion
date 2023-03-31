@@ -76,29 +76,44 @@ class _HeaderComponentWidgetState extends State<HeaderComponentWidget> {
                     color: Color(0xFF9BEFE6),
                     borderRadius: BorderRadius.circular(12.0),
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(
-                        Icons.tag_faces_sharp,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 12.0,
-                      ),
-                      Text(
-                        'Feedback',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Montserrat',
-                              fontSize: 12.0,
-                            ),
-                      ),
-                      Image.asset(
-                        'assets/images/Layer_2.png',
-                        width: 12.0,
-                        height: 12.3,
-                        fit: BoxFit.cover,
-                      ),
-                    ],
+                  child: InkWell(
+                    onTap: () async {
+                      context.pushNamed(
+                        'feedback_page',
+                        extra: <String, dynamic>{
+                          kTransitionInfoKey: TransitionInfo(
+                            hasTransition: true,
+                            transitionType: PageTransitionType.rightToLeft,
+                            duration: Duration(milliseconds: 1000),
+                          ),
+                        },
+                      );
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(
+                          Icons.tag_faces_sharp,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          size: 12.0,
+                        ),
+                        Text(
+                          'Feedback',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 12.0,
+                                  ),
+                        ),
+                        Image.asset(
+                          'assets/images/Layer_2.png',
+                          width: 12.0,
+                          height: 12.3,
+                          fit: BoxFit.cover,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -68,7 +68,7 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                         width: 29.0,
                         height: 29.0,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).secondaryColor,
+                          color: FlutterFlowTheme.of(context).secondary,
                           shape: BoxShape.circle,
                         ),
                         child: InkWell(
@@ -108,7 +108,7 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Text(
                         'Welcome to the largest Focussed Android Developer community in Africa',
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
                   ),
@@ -137,7 +137,7 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                       width: double.infinity,
                       height: 88.0,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).secondary,
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                       child: Padding(
@@ -168,7 +168,7 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                                     Text(
                                       'Call for Speakers',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
                                             color: FlutterFlowTheme.of(context)
@@ -180,7 +180,7 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                                     Text(
                                       'Apply to be a speaker',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
                                             fontSize: 10.0,

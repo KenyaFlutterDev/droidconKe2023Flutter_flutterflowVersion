@@ -105,7 +105,7 @@ class _GoogleSignInDialogWidgetState extends State<GoogleSignInDialogWidget>
                         child: Text(
                           'CANCEL',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     color: Color(0xFF707070),
                                   ),
@@ -266,7 +266,7 @@ class _GoogleSignInDialogWidgetState extends State<GoogleSignInDialogWidget>
                               child: Text(
                                 'Sign in with Google',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: Color(0xFF191D1D),
@@ -286,7 +286,7 @@ class _GoogleSignInDialogWidgetState extends State<GoogleSignInDialogWidget>
                   width: 40.0,
                   height: 40.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primaryColor,
+                    color: FlutterFlowTheme.of(context).primary,
                     shape: BoxShape.circle,
                   ),
                 ).animateOnActionTrigger(

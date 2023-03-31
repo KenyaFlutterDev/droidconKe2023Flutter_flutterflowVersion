@@ -55,7 +55,7 @@ class _FeedbackDialogWidgetState extends State<FeedbackDialogWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 42.0, 0.0, 0.0),
             child: Text(
               ' 🎉',
-              style: FlutterFlowTheme.of(context).bodyText1.override(
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Montserrat',
                     fontSize: 116.0,
                   ),
@@ -71,7 +71,7 @@ class _FeedbackDialogWidgetState extends State<FeedbackDialogWidget> {
               child: Text(
                 'Thank you for your feedback',
                 textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).bodyText1.override(
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Montserrat',
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,
@@ -92,11 +92,12 @@ class _FeedbackDialogWidgetState extends State<FeedbackDialogWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: Color(0xFF000CEB),
-                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Montserrat',
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
                     ),
+                elevation: 2.0,
                 borderSide: BorderSide(
                   color: Colors.transparent,
                   width: 1.0,

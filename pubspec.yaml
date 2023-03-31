@@ -46,6 +46,7 @@ dependencies:
   google_sign_in_ios: ^5.6.1
   google_sign_in_platform_interface: ^2.3.1
   google_sign_in_web: ^0.11.0+2
+  infinite_scroll_pagination: 3.2.0
   intl: 0.17.0
   json_path: 0.4.1
   mime_type: 1.0.0

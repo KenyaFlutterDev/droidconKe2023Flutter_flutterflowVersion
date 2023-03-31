@@ -73,7 +73,7 @@ class _OutlinedIconButtonWidgetState extends State<OutlinedIconButtonWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(5.64, 0.0, 0.0, 0.0),
             child: Text(
               widget.twitterHandle,
-              style: FlutterFlowTheme.of(context).bodyText1.override(
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Montserrat',
                     color: Color(0xFF000CEB),
                   ),
