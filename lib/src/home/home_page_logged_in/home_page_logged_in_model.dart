@@ -7,6 +7,8 @@ import '/src/widgets/sessions_card_component/sessions_card_component_widget.dart
 import '/src/widgets/speakers_component/speakers_component_widget.dart';
 import '/src/widgets/sponsors_component/sponsors_component_widget.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
+import '/flutter_flow/request_manager.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -26,6 +28,23 @@ class HomePageLoggedInModel extends FlutterFlowModel {
   // Model for organisedby_component component.
   late OrganisedbyComponentModel organisedbyComponentModel;
 
+  /// Query cache managers for this widget.
+
+  final _speakersListHomePageManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> speakersListHomePage({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _speakersListHomePageManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearSpeakersListHomePageCache() => _speakersListHomePageManager.clear();
+  void clearSpeakersListHomePageCacheKey(String? uniqueKey) =>
+      _speakersListHomePageManager.clearRequest(uniqueKey);
+
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
@@ -40,6 +59,10 @@ class HomePageLoggedInModel extends FlutterFlowModel {
     headerComponentModel.dispose();
     sponsorsComponentModel.dispose();
     organisedbyComponentModel.dispose();
+
+    /// Dispose query cache managers for this widget.
+
+    clearSpeakersListHomePageCache();
   }
 
   /// Additional helper methods are added here.

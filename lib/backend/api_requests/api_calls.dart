@@ -167,6 +167,7 @@ class FeedbackCall {
 class SpeakersCall {
   Future<ApiCallResponse> call({
     int? perPage,
+    int? page,
   }) {
     return ApiManager.instance.makeApiCall(
       callName: 'Speakers',
@@ -178,6 +179,7 @@ class SpeakersCall {
       },
       params: {
         'per_page': perPage,
+        'page': page,
       },
       returnBody: true,
       encodeBodyUtf8: false,

@@ -328,7 +328,8 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                             .addPageRequestListener((nextPageMarker) {
                           DroidConKeAPIGroup.speakersCall
                               .call(
-                            perPage: 25,
+                            perPage: 12,
+                            page: nextPageMarker.nextPageNumber,
                           )
                               .then((listViewSpeakersResponse) {
                             final pageItems = DroidConKeAPIGroup.speakersCall
