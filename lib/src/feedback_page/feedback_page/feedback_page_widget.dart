@@ -28,6 +28,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
     _model = createModel(context, () => FeedbackPageModel());
 
     _model.textController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -42,12 +43,12 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: Colors.white,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-        child: Stack(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: Colors.white,
+        body: Stack(
           children: [
             SingleChildScrollView(
               child: Column(
@@ -343,6 +344,10 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
               child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () async {
                   context.safePop();
                 },

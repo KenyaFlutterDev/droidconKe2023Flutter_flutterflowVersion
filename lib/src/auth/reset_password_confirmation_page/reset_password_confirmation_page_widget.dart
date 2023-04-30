@@ -27,6 +27,8 @@ class _ResetPasswordConfirmationPageWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => ResetPasswordConfirmationPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -52,6 +54,10 @@ class _ResetPasswordConfirmationPageWidgetState
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20.0, 25.0, 0.0, 0.0),
               child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () async {
                   context.safePop();
                 },

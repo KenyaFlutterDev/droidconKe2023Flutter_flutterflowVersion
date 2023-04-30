@@ -28,6 +28,8 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageNoLoginModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -42,12 +44,12 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: Colors.white,
+        body: SafeArea(
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
             child: SingleChildScrollView(
@@ -72,23 +74,25 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                           shape: BoxShape.circle,
                         ),
                         child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
-                            await showModalBottomSheet(
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              barrierColor: Color(0x00000000),
-                              enableDrag: false,
+                            await showDialog(
                               context: context,
-                              builder: (context) {
-                                return Padding(
-                                  padding: MediaQuery.of(context).viewInsets,
-                                  child: GoogleSignInDialogWidget(),
+                              builder: (dialogContext) {
+                                return GestureDetector(
+                                  onTap: () => FocusScope.of(context)
+                                      .requestFocus(_unfocusNode),
+                                  child: Dialog(
+                                    insetPadding:
+                                        MediaQuery.of(dialogContext).viewInsets,
+                                    child: GoogleSignInDialogWidget(),
+                                  ),
                                 );
                               },
                             ).then((value) => setState(() {}));
-
-                            await Future.delayed(
-                                const Duration(milliseconds: 1000));
                           },
                           child: Icon(
                             Icons.lock,

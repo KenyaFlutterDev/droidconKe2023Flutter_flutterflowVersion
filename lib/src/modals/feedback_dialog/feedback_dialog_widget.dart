@@ -28,6 +28,8 @@ class _FeedbackDialogWidgetState extends State<FeedbackDialogWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FeedbackDialogModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

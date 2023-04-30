@@ -27,6 +27,8 @@ class _OrganizedByPanelWidgetState extends State<OrganizedByPanelWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => OrganizedByPanelModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

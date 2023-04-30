@@ -30,6 +30,8 @@ class _FeedsCardsComponentWidgetState extends State<FeedsCardsComponentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FeedsCardsComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -72,6 +74,10 @@ class _FeedsCardsComponentWidgetState extends State<FeedsCardsComponentWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () async {
                     await showModalBottomSheet(
                       isScrollControlled: true,
@@ -79,9 +85,9 @@ class _FeedsCardsComponentWidgetState extends State<FeedsCardsComponentWidget> {
                       barrierColor: Color(0x00000000),
                       enableDrag: false,
                       context: context,
-                      builder: (context) {
+                      builder: (bottomSheetContext) {
                         return Padding(
-                          padding: MediaQuery.of(context).viewInsets,
+                          padding: MediaQuery.of(bottomSheetContext).viewInsets,
                           child: Container(
                             height: 245.0,
                             child: ShareModalWidget(),

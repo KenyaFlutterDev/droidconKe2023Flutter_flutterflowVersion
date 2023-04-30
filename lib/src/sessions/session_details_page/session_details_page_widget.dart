@@ -28,6 +28,8 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SessionDetailsPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -42,24 +44,24 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('FloatingActionButton pressed ...');
-        },
-        backgroundColor: Color(0xFFFF6E4D),
-        elevation: 8.0,
-        child: FaIcon(
-          FontAwesomeIcons.share,
-          color: FlutterFlowTheme.of(context).primaryBtnText,
-          size: 24.0,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            print('FloatingActionButton pressed ...');
+          },
+          backgroundColor: Color(0xFFFF6E4D),
+          elevation: 8.0,
+          child: FaIcon(
+            FontAwesomeIcons.share,
+            color: FlutterFlowTheme.of(context).primaryBtnText,
+            size: 24.0,
+          ),
         ),
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -72,6 +74,10 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 25.0, 0.0, 0.0),
                       child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () async {
                           context.safePop();
                         },

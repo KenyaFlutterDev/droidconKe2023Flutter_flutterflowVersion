@@ -27,6 +27,7 @@ class DroidConKeAPIGroup {
   static EventSponsorsCall eventSponsorsCall = EventSponsorsCall();
   static UserDetailsCall userDetailsCall = UserDetailsCall();
   static LogOutCall logOutCall = LogOutCall();
+  static EventSessionsCall eventSessionsCall = EventSessionsCall();
 }
 
 class SocialLoginCall {
@@ -107,7 +108,9 @@ class EventTypeCall {
         ...DroidConKeAPIGroup.headers,
         'Authorization': 'Bearer ${apiKey}',
       },
-      params: {},
+      params: {
+        'include': "123k",
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -295,7 +298,119 @@ class LogOutCall {
   }
 }
 
+class EventSessionsCall {
+  Future<ApiCallResponse> call({
+    int? perPage,
+    int? page,
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Event Sessions',
+      apiUrl:
+          '${DroidConKeAPIGroup.baseUrl}/events/droidconke-2022-281/sessions',
+      callType: ApiCallType.GET,
+      headers: {
+        ...DroidConKeAPIGroup.headers,
+      },
+      params: {
+        'per_page': perPage,
+        'page': page,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic sessionTitle(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].title''',
+        true,
+      );
+  dynamic sessionData(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      );
+  dynamic sessionDescription(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].description''',
+        true,
+      );
+  dynamic sessionFormat(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].session_format''',
+        true,
+      );
+  dynamic sessionLevel(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].session_level''',
+        true,
+      );
+  dynamic sessioIsKeynote(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].is_keynote''',
+        true,
+      );
+  dynamic sessionImage(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].session_image''',
+        true,
+      );
+  dynamic sessionSpeakers(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].speakers''',
+        true,
+      );
+  dynamic sessionSpeakersName(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].speakers[:].name''',
+        true,
+      );
+  dynamic sessionSpeakersTagline(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].speakers[:].tagline''',
+        true,
+      );
+  dynamic sessionsSpeakersBiography(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].speakers[:].biography''',
+        true,
+      );
+  dynamic sessionSpeakersAvatar(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].speakers[:].avatar''',
+        true,
+      );
+  dynamic sessionPageCount(dynamic response) => getJsonField(
+        response,
+        r'''$.meta.paginator.count''',
+      );
+  dynamic sessionNextPage(dynamic response) => getJsonField(
+        response,
+        r'''$.meta.paginator.next_page''',
+      );
+}
+
 /// End DroidConKe API Group Code
+
+class DevCall {
+  static Future<ApiCallResponse> call({
+    String? ip = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'dev',
+      apiUrl: 'https://exaple.com/${ip}/users',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
 
 class ApiPagingParams {
   int nextPageNumber = 0;

@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +28,8 @@ class _HeaderComponentWidgetState extends State<HeaderComponentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HeaderComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -57,6 +59,10 @@ class _HeaderComponentWidgetState extends State<HeaderComponentWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
               child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () async {
                   context.pushNamed(
                     'feedback_page',
@@ -77,6 +83,10 @@ class _HeaderComponentWidgetState extends State<HeaderComponentWidget> {
                     borderRadius: BorderRadius.circular(12.0),
                   ),
                   child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                     onTap: () async {
                       context.pushNamed(
                         'feedback_page',
@@ -119,9 +129,13 @@ class _HeaderComponentWidgetState extends State<HeaderComponentWidget> {
               ),
             ),
             InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
               onTap: () async {
                 GoRouter.of(context).prepareAuthEvent();
-                await signOut();
+                await authManager.signOut();
                 GoRouter.of(context).clearRedirectLocation();
 
                 context.goNamedAuth('home_page_no_login', mounted);

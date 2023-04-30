@@ -28,6 +28,8 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FilterComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -86,6 +88,10 @@ class _FilterComponentWidgetState extends State<FilterComponentWidget> {
                     ],
                   ),
                   InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                     onTap: () async {
                       context.safePop();
                     },

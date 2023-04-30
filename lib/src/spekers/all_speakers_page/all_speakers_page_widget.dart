@@ -28,6 +28,8 @@ class _AllSpeakersPageWidgetState extends State<AllSpeakersPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AllSpeakersPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -42,12 +44,12 @@ class _AllSpeakersPageWidgetState extends State<AllSpeakersPageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: Colors.white,
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -60,6 +62,10 @@ class _AllSpeakersPageWidgetState extends State<AllSpeakersPageWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 25.0, 0.0, 0.0),
                       child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () async {
                           context.safePop();
                         },
@@ -101,7 +107,7 @@ class _AllSpeakersPageWidgetState extends State<AllSpeakersPageWidget> {
                     future: _model
                         .allSpeakers(
                       requestFn: () => DroidConKeAPIGroup.speakersCall.call(
-                        perPage: 25,
+                        perPage: 50,
                       ),
                     )
                         .then((result) {

@@ -34,8 +34,8 @@ class _GoogleSignInDialogWidgetState extends State<GoogleSignInDialogWidget>
           curve: Curves.easeInOut,
           delay: 100.ms,
           duration: 440.ms,
-          begin: -2.0,
-          end: 2.0,
+          begin: Offset(-2.0, -2.0),
+          end: Offset(2.0, 2.0),
         ),
       ],
     ),
@@ -58,6 +58,8 @@ class _GoogleSignInDialogWidgetState extends State<GoogleSignInDialogWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -72,6 +74,7 @@ class _GoogleSignInDialogWidgetState extends State<GoogleSignInDialogWidget>
     context.watch<FFAppState>();
 
     return Container(
+      width: 315.0,
       height: 367.0,
       constraints: BoxConstraints(
         maxWidth: 400.0,
@@ -99,6 +102,10 @@ class _GoogleSignInDialogWidgetState extends State<GoogleSignInDialogWidget>
                     Align(
                       alignment: AlignmentDirectional(0.0, -0.2),
                       child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () async {
                           context.safePop();
                         },
@@ -127,6 +134,10 @@ class _GoogleSignInDialogWidgetState extends State<GoogleSignInDialogWidget>
                     (_model.tapped == false) ||
                     (_model.tapped == null))
                   InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                     onTap: () async {
                       setState(() {
                         _model.tapped = true;
