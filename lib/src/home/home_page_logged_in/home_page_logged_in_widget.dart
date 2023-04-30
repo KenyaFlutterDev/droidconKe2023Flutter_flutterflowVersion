@@ -163,15 +163,45 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                                 ),
                                 child: Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Text(
-                                    '+45',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          color: Color(0xFF000CEB),
-                                          fontSize: 10.0,
-                                        ),
+                                  child: FutureBuilder<ApiCallResponse>(
+                                    future: FFAppState().allSessionsNumber(
+                                      requestFn: () => DroidConKeAPIGroup
+                                          .eventSessionsCall
+                                          .call(
+                                        perPage: 100,
+                                      ),
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: SpinKitDoubleBounce(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      final textEventSessionsResponse =
+                                          snapshot.data!;
+                                      return Text(
+                                        '+${(DroidConKeAPIGroup.eventSessionsCall.sessionData(
+                                          textEventSessionsResponse.jsonBody,
+                                        ) as List).map<String>((s) => s.toString()).toList().length.toString()}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Montserrat',
+                                              color: Color(0xFF000CEB),
+                                              fontSize: 10.0,
+                                            ),
+                                      );
+                                    },
                                   ),
                                 ),
                               ),
@@ -255,15 +285,45 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                                   ),
                                   child: Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Text(
-                                      '+45',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            color: Color(0xFF000CEB),
-                                            fontSize: 10.0,
-                                          ),
+                                    child: FutureBuilder<ApiCallResponse>(
+                                      future: FFAppState().numberOfSpeakers(
+                                        requestFn: () => DroidConKeAPIGroup
+                                            .speakersCall
+                                            .call(
+                                          perPage: 100,
+                                        ),
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: SpinKitDoubleBounce(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                size: 50.0,
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                        final textSpeakersResponse =
+                                            snapshot.data!;
+                                        return Text(
+                                          '+${(DroidConKeAPIGroup.speakersCall.speakersData(
+                                            textSpeakersResponse.jsonBody,
+                                          ) as List).map<String>((s) => s.toString()).toList().length.toString()}',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                color: Color(0xFF000CEB),
+                                                fontSize: 10.0,
+                                              ),
+                                        );
+                                      },
                                     ),
                                   ),
                                 ),
