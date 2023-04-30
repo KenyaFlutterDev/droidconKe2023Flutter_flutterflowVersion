@@ -394,24 +394,6 @@ class EventSessionsCall {
 
 /// End DroidConKe API Group Code
 
-class DevCall {
-  static Future<ApiCallResponse> call({
-    String? ip = '',
-  }) {
-    return ApiManager.instance.makeApiCall(
-      callName: 'dev',
-      apiUrl: 'https://exaple.com/${ip}/users',
-      callType: ApiCallType.GET,
-      headers: {},
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-    );
-  }
-}
-
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

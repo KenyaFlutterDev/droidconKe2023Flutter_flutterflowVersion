@@ -1,9 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/sessions_list_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/src/widgets/header_component/header_component_widget.dart';
 import '/src/widgets/organisedby_component/organisedby_component_widget.dart';
+import '/src/widgets/sessions_list_component/sessions_list_component_widget.dart';
 import '/src/widgets/speakers_component/speakers_component_widget.dart';
 import '/src/widgets/sponsors_component/sponsors_component_widget.dart';
 import 'package:flutter/material.dart';
