@@ -28,6 +28,8 @@ class _OrganizersComponentWidgetState extends State<OrganizersComponentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => OrganizersComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

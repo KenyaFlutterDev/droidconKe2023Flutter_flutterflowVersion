@@ -30,6 +30,8 @@ class _TwitterHandleComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => TwitterHandleComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

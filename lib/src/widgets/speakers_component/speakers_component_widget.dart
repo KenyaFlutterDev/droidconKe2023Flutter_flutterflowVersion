@@ -33,6 +33,8 @@ class _SpeakersComponentWidgetState extends State<SpeakersComponentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SpeakersComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

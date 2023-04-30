@@ -26,7 +26,7 @@ class AnimationInfo {
 void createAnimation(AnimationInfo animation, TickerProvider vsync) {
   final newController = AnimationController(vsync: vsync);
   animation.controller = newController;
-  animation.adapter = Adapter()..init(newController);
+  animation.adapter = ValueAdapter(newController.value);
 }
 
 void setupAnimations(Iterable<AnimationInfo> animations, TickerProvider vsync) {

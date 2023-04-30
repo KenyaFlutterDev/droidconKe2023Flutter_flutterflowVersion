@@ -30,6 +30,8 @@ class _SesionHeaderComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => SesionHeaderComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -70,6 +72,10 @@ class _SesionHeaderComponentWidgetState
               ),
               if (FFAppState().sessionListToggle == true)
                 InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () async {
                     setState(() {
                       FFAppState().sessionListToggle = false;
@@ -84,6 +90,10 @@ class _SesionHeaderComponentWidgetState
                 ),
               if (FFAppState().sessionListToggle == false)
                 InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () async {
                     setState(() {
                       FFAppState().sessionListToggle = true;
@@ -109,6 +119,10 @@ class _SesionHeaderComponentWidgetState
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () async {
                     await showModalBottomSheet(
                       isScrollControlled: true,
@@ -116,9 +130,9 @@ class _SesionHeaderComponentWidgetState
                       barrierColor: Color(0x00000000),
                       enableDrag: false,
                       context: context,
-                      builder: (context) {
+                      builder: (bottomSheetContext) {
                         return Padding(
-                          padding: MediaQuery.of(context).viewInsets,
+                          padding: MediaQuery.of(bottomSheetContext).viewInsets,
                           child: FilterComponentWidget(),
                         );
                       },

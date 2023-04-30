@@ -44,6 +44,8 @@ class _SessionDateComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => SessionDateComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

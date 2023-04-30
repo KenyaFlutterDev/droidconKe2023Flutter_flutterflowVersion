@@ -37,6 +37,8 @@ class _OutlinedIconButtonWidgetState extends State<OutlinedIconButtonWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => OutlinedIconButtonModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

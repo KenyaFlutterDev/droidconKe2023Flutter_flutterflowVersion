@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/request_manager.dart';
 import 'backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
@@ -82,6 +83,36 @@ class FFAppState extends ChangeNotifier {
     _user = _value;
     prefs.setString('ff_user', jsonEncode(_value));
   }
+
+  final _numberOfSpeakersManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> numberOfSpeakers({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _numberOfSpeakersManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearNumberOfSpeakersCache() => _numberOfSpeakersManager.clear();
+  void clearNumberOfSpeakersCacheKey(String? uniqueKey) =>
+      _numberOfSpeakersManager.clearRequest(uniqueKey);
+
+  final _allSessionsNumberManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> allSessionsNumber({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _allSessionsNumberManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearAllSessionsNumberCache() => _allSessionsNumberManager.clear();
+  void clearAllSessionsNumberCacheKey(String? uniqueKey) =>
+      _allSessionsNumberManager.clearRequest(uniqueKey);
 }
 
 LatLng? _latLngFromString(String? val) {

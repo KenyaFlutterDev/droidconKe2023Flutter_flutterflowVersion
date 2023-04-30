@@ -31,6 +31,7 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController1 ??= TextEditingController();
     _model.passwordController2 ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -45,12 +46,12 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-        child: Stack(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        body: Stack(
           children: [
             SingleChildScrollView(
               child: Column(
@@ -393,6 +394,10 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 13.0, 0.0, 0.0),
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed('sign_in_page');
                       },
@@ -418,6 +423,10 @@ class _SignInUpPageWidgetState extends State<SignInUpPageWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                     onTap: () async {
                       context.safePop();
                     },

@@ -34,6 +34,8 @@ class _AllSpeakersComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => AllSpeakersComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -122,6 +124,10 @@ class _AllSpeakersComponentWidgetState
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                 child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () async {
                     context.pushNamed(
                       'session_details_page',

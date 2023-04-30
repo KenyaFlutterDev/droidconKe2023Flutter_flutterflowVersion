@@ -8,7 +8,12 @@ import 'sessions_card_component_model.dart';
 export 'sessions_card_component_model.dart';
 
 class SessionsCardComponentWidget extends StatefulWidget {
-  const SessionsCardComponentWidget({Key? key}) : super(key: key);
+  const SessionsCardComponentWidget({
+    Key? key,
+    this.sessionsDetails,
+  }) : super(key: key);
+
+  final dynamic sessionsDetails;
 
   @override
   _SessionsCardComponentWidgetState createState() =>
@@ -29,6 +34,8 @@ class _SessionsCardComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => SessionsCardComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -62,17 +69,23 @@ class _SessionsCardComponentWidgetState
                 topLeft: Radius.circular(12.0),
                 topRight: Radius.circular(12.0),
               ),
-              child: Image.asset(
-                'assets/images/FWMmgzPWAAMh9rp.png',
+              child: Image.network(
+                getJsonField(
+                  widget.sessionsDetails,
+                  r'''$.session_image''',
+                ),
                 width: double.infinity,
                 height: 124.0,
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
               ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(10.0, 15.2, 10.0, 0.0),
               child: Text(
-                'Transforming Famers Lives Using Android in Kenya',
+                getJsonField(
+                  widget.sessionsDetails,
+                  r'''$.title''',
+                ).toString(),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Montserrat',
                       fontSize: 14.0,

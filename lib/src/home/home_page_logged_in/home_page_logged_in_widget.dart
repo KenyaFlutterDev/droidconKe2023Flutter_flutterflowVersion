@@ -3,10 +3,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/src/widgets/header_component/header_component_widget.dart';
 import '/src/widgets/organisedby_component/organisedby_component_widget.dart';
-import '/src/widgets/sessions_card_component/sessions_card_component_widget.dart';
+import '/src/widgets/sessions_list_component/sessions_list_component_widget.dart';
 import '/src/widgets/speakers_component/speakers_component_widget.dart';
 import '/src/widgets/sponsors_component/sponsors_component_widget.dart';
-import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -33,6 +32,8 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageLoggedInModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -47,12 +48,12 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: Colors.white,
+        body: SafeArea(
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
             child: SingleChildScrollView(
@@ -122,6 +123,10 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 8.0, 0.0),
                                 child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
                                   onTap: () async {
                                     context.pushNamed(
                                       'sessions_page',
@@ -158,15 +163,45 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                                 ),
                                 child: Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Text(
-                                    '+45',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          color: Color(0xFF000CEB),
-                                          fontSize: 10.0,
-                                        ),
+                                  child: FutureBuilder<ApiCallResponse>(
+                                    future: FFAppState().allSessionsNumber(
+                                      requestFn: () => DroidConKeAPIGroup
+                                          .eventSessionsCall
+                                          .call(
+                                        perPage: 100,
+                                      ),
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: SpinKitDoubleBounce(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      final textEventSessionsResponse =
+                                          snapshot.data!;
+                                      return Text(
+                                        '+${(DroidConKeAPIGroup.eventSessionsCall.sessionData(
+                                          textEventSessionsResponse.jsonBody,
+                                        ) as List).map<String>((s) => s.toString()).toList().length.toString()}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Montserrat',
+                                              color: Color(0xFF000CEB),
+                                              fontSize: 10.0,
+                                            ),
+                                      );
+                                    },
                                   ),
                                 ),
                               ),
@@ -176,50 +211,10 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                       ),
                     ),
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 215.2,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
-                    child: Builder(
-                      builder: (context) {
-                        final sessionaList = List.generate(
-                                random_data.randomInteger(5, 6),
-                                (index) => random_data.randomInteger(0, 10))
-                            .toList()
-                            .take(6)
-                            .toList();
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: sessionaList.length,
-                          itemBuilder: (context, sessionaListIndex) {
-                            final sessionaListItem =
-                                sessionaList[sessionaListIndex];
-                            return InkWell(
-                              onTap: () async {
-                                context.pushNamed(
-                                  'session_details_page',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.rightToLeft,
-                                      duration: Duration(milliseconds: 2000),
-                                    ),
-                                  },
-                                );
-                              },
-                              child: SessionsCardComponentWidget(
-                                key: Key(
-                                    'Keyg4r_${sessionaListIndex}_of_${sessionaList.length}'),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                    ),
+                  wrapWithModel(
+                    model: _model.sessionsListComponentModel,
+                    updateCallback: () => setState(() {}),
+                    child: SessionsListComponentWidget(),
                   ),
                   Container(
                     width: double.infinity,
@@ -246,6 +241,10 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                                 ),
                           ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed(
                                 'all_speakers_page',
@@ -286,15 +285,45 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                                   ),
                                   child: Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Text(
-                                      '+45',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            color: Color(0xFF000CEB),
-                                            fontSize: 10.0,
-                                          ),
+                                    child: FutureBuilder<ApiCallResponse>(
+                                      future: FFAppState().numberOfSpeakers(
+                                        requestFn: () => DroidConKeAPIGroup
+                                            .speakersCall
+                                            .call(
+                                          perPage: 100,
+                                        ),
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: SpinKitDoubleBounce(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                size: 50.0,
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                        final textSpeakersResponse =
+                                            snapshot.data!;
+                                        return Text(
+                                          '+${(DroidConKeAPIGroup.speakersCall.speakersData(
+                                            textSpeakersResponse.jsonBody,
+                                          ) as List).map<String>((s) => s.toString()).toList().length.toString()}',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                color: Color(0xFF000CEB),
+                                                fontSize: 10.0,
+                                              ),
+                                        );
+                                      },
                                     ),
                                   ),
                                 ),
@@ -328,15 +357,16 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                             .addPageRequestListener((nextPageMarker) {
                           DroidConKeAPIGroup.speakersCall
                               .call(
-                            perPage: 12,
+                            perPage: 20,
                             page: nextPageMarker.nextPageNumber,
                           )
                               .then((listViewSpeakersResponse) {
-                            final pageItems = DroidConKeAPIGroup.speakersCall
-                                .speakersData(
-                                  listViewSpeakersResponse.jsonBody,
-                                )!
-                                .toList() as List;
+                            final pageItems =
+                                (DroidConKeAPIGroup.speakersCall.speakersData(
+                                          listViewSpeakersResponse.jsonBody,
+                                        )! ??
+                                        [])
+                                    .toList() as List;
                             final newNumItems =
                                 nextPageMarker.numItems + pageItems.length;
                             _model.pagingController!.appendPage(
@@ -374,6 +404,10 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                           final userListItem =
                               _model.pagingController!.itemList![userListIndex];
                           return InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed(
                                 'speaker_page',

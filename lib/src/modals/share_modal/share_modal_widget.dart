@@ -28,6 +28,8 @@ class _ShareModalWidgetState extends State<ShareModalWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ShareModalModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

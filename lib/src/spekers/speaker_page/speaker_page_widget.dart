@@ -26,6 +26,8 @@ class _SpeakerPageWidgetState extends State<SpeakerPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SpeakerPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -40,12 +42,12 @@ class _SpeakerPageWidgetState extends State<SpeakerPageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: Colors.white,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-        child: Stack(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: Colors.white,
+        body: Stack(
           children: [
             Column(
               mainAxisSize: MainAxisSize.max,
@@ -194,6 +196,10 @@ class _SpeakerPageWidgetState extends State<SpeakerPageWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
               child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () async {
                   context.safePop();
                 },

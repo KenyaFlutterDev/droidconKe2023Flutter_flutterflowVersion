@@ -28,6 +28,8 @@ class _SponsorsComponentWidgetState extends State<SponsorsComponentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SponsorsComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -5,7 +5,7 @@
 
 
     <application
-        android:label="DroidconKe2023FlutterFlow"
+        android:label="DroidconKe"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">

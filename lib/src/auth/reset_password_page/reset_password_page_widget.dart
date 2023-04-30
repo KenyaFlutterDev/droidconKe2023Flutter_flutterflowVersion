@@ -28,6 +28,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
     _model = createModel(context, () => ResetPasswordPageModel());
 
     _model.emailAddressController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -53,6 +54,10 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20.0, 25.0, 0.0, 0.0),
               child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () async {
                   context.safePop();
                 },
@@ -188,6 +193,10 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 160.0, 0.0, 0.0),
                 child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () async {
                     context.pushNamed(
                       'sign_in_page',
