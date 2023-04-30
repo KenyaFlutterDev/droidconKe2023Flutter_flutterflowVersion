@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/src/modals/feedback_dialog/feedback_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -333,9 +334,44 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 26.0, 20.0, 20.0),
-                    child: custom_widgets.FeedbackActionDialog(
-                      width: 372.0,
-                      height: 40.0,
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        await showDialog(
+                          context: context,
+                          builder: (dialogContext) {
+                            return GestureDetector(
+                              onTap: () => FocusScope.of(context)
+                                  .requestFocus(_unfocusNode),
+                              child: Dialog(
+                                insetPadding:
+                                    MediaQuery.of(dialogContext).viewInsets,
+                                child: FeedbackDialogWidget(),
+                              ),
+                            );
+                          },
+                        ).then((value) => setState(() {}));
+                      },
+                      text: 'SUBMIT FEEDBACK',
+                      options: FFButtonOptions(
+                        width: double.infinity,
+                        height: 40.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: Color(0xFF000CEB),
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Montserrat',
+                                  color: Color(0xFFF6F6F8),
+                                ),
+                        elevation: 2.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                     ),
                   ),
                 ],
