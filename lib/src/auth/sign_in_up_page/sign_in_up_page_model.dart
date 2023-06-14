@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 class SignInUpPageModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // State field(s) for username widget.
   TextEditingController? usernameController;
   String? Function(BuildContext, String?)? usernameControllerValidator;
@@ -33,11 +34,14 @@ class SignInUpPageModel extends FlutterFlowModel {
   }
 
   void dispose() {
+    unfocusNode.dispose();
     usernameController?.dispose();
     emailAddressController?.dispose();
     passwordController1?.dispose();
     passwordController2?.dispose();
   }
+
+  /// Action blocks are added here.
 
   /// Additional helper methods are added here.
 

@@ -14,6 +14,7 @@ import 'package:provider/provider.dart';
 class AllSpeakersPageModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   bool apiRequestCompleted = false;
   String? apiRequestLastUniqueKey;
 
@@ -39,10 +40,14 @@ class AllSpeakersPageModel extends FlutterFlowModel {
   void initState(BuildContext context) {}
 
   void dispose() {
+    unfocusNode.dispose();
+
     /// Dispose query cache managers for this widget.
 
     clearAllSpeakersCache();
   }
+
+  /// Action blocks are added here.
 
   /// Additional helper methods are added here.
 

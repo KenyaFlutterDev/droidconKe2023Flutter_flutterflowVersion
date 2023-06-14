@@ -22,13 +22,13 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
   late SessionDetailsPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => SessionDetailsPageModel());
 
+    _model.textController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -36,7 +36,6 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
@@ -45,7 +44,7 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -62,6 +61,7 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
           ),
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -293,6 +293,60 @@ class _SessionDetailsPageWidgetState extends State<SessionDetailsPageWidget> {
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
+                              ),
+                              TextFormField(
+                                controller: _model.textController,
+                                autofocus: true,
+                                textCapitalization: TextCapitalization.none,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  hintText: '[Some hint text...]',
+                                  hintStyle:
+                                      FlutterFlowTheme.of(context).bodySmall,
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  errorBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  focusedErrorBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                validator: _model.textControllerValidator
+                                    .asValidator(context),
                               ),
                             ],
                           ),

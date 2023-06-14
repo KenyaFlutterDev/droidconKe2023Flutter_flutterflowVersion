@@ -12,23 +12,29 @@ class FFAppState extends ChangeNotifier {
     return _instance;
   }
 
-  FFAppState._internal() {
-    initializePersistedState();
-  }
+  FFAppState._internal();
 
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
-    _listLinks = prefs.getStringList('ff_listLinks') ?? _listLinks;
-    _sessionListToggle =
-        prefs.getBool('ff_sessionListToggle') ?? _sessionListToggle;
-    _appToken = prefs.getString('ff_appToken') ?? _appToken;
-    if (prefs.containsKey('ff_user')) {
-      try {
-        _user = jsonDecode(prefs.getString('ff_user') ?? '');
-      } catch (e) {
-        print("Can't decode persisted json. Error: $e.");
+    _safeInit(() {
+      _listLinks = prefs.getStringList('ff_listLinks') ?? _listLinks;
+    });
+    _safeInit(() {
+      _sessionListToggle =
+          prefs.getBool('ff_sessionListToggle') ?? _sessionListToggle;
+    });
+    _safeInit(() {
+      _appToken = prefs.getString('ff_appToken') ?? _appToken;
+    });
+    _safeInit(() {
+      if (prefs.containsKey('ff_user')) {
+        try {
+          _user = jsonDecode(prefs.getString('ff_user') ?? '');
+        } catch (e) {
+          print("Can't decode persisted json. Error: $e.");
+        }
       }
-    }
+    });
   }
 
   void update(VoidCallback callback) {
@@ -60,6 +66,14 @@ class FFAppState extends ChangeNotifier {
 
   void removeAtIndexFromListLinks(int _index) {
     _listLinks.removeAt(_index);
+    prefs.setStringList('ff_listLinks', _listLinks);
+  }
+
+  void updateListLinksAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _listLinks[_index] = updateFn(_listLinks[_index]);
     prefs.setStringList('ff_listLinks', _listLinks);
   }
 
@@ -123,4 +137,16 @@ LatLng? _latLngFromString(String? val) {
   final lat = double.parse(split.first);
   final lng = double.parse(split.last);
   return LatLng(lat, lng);
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }

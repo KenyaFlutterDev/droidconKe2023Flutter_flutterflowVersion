@@ -130,9 +130,9 @@ class _SesionHeaderComponentWidgetState
                       barrierColor: Color(0x00000000),
                       enableDrag: false,
                       context: context,
-                      builder: (bottomSheetContext) {
+                      builder: (context) {
                         return Padding(
-                          padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                          padding: MediaQuery.of(context).viewInsets,
                           child: FilterComponentWidget(),
                         );
                       },

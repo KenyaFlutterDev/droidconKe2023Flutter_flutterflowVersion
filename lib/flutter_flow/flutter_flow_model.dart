@@ -102,13 +102,13 @@ class FlutterFlowDynamicModels<T extends FlutterFlowModel> {
         .toList();
   }
 
-  S? getValueAtIndex<S>(int index, S Function(T) getValue) {
+  S? getValueAtIndex<S>(int index, S? Function(T) getValue) {
     final uniqueKey =
         _childrenIndexes.entries.firstWhereOrNull((e) => e.value == index)?.key;
     return getValueForKey(uniqueKey, getValue);
   }
 
-  S? getValueForKey<S>(String? uniqueKey, S Function(T) getValue) {
+  S? getValueForKey<S>(String? uniqueKey, S? Function(T) getValue) {
     final model = _childrenModels[uniqueKey];
     return model != null ? getValue(model) : null;
   }

@@ -22,7 +22,6 @@ class _AllSpeakersPageWidgetState extends State<AllSpeakersPageWidget> {
   late AllSpeakersPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
@@ -36,7 +35,6 @@ class _AllSpeakersPageWidgetState extends State<AllSpeakersPageWidget> {
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
@@ -45,11 +43,12 @@ class _AllSpeakersPageWidgetState extends State<AllSpeakersPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -137,6 +136,13 @@ class _AllSpeakersPageWidgetState extends State<AllSpeakersPageWidget> {
                                   )
                                   ?.toList() ??
                               [];
+                          if (allSpeakers.isEmpty) {
+                            return Center(
+                              child: Image.asset(
+                                'assets/images/Group_753.png',
+                              ),
+                            );
+                          }
                           return RefreshIndicator(
                             onRefresh: () async {
                               setState(() {
