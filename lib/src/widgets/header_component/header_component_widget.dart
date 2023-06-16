@@ -138,7 +138,7 @@ class _HeaderComponentWidgetState extends State<HeaderComponentWidget> {
                 await authManager.signOut();
                 GoRouter.of(context).clearRedirectLocation();
 
-                context.goNamedAuth('home_page_no_login', mounted);
+                context.goNamedAuth('home_page_no_login', context.mounted);
               },
               child: Container(
                 width: 30.0,

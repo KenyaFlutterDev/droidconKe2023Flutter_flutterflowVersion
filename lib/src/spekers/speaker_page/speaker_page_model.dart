@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 class SpeakerPageModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for twitter_handle_component component.
   late TwitterHandleComponentModel twitterHandleComponentModel;
 
@@ -21,8 +22,11 @@ class SpeakerPageModel extends FlutterFlowModel {
   }
 
   void dispose() {
+    unfocusNode.dispose();
     twitterHandleComponentModel.dispose();
   }
+
+  /// Action blocks are added here.
 
   /// Additional helper methods are added here.
 

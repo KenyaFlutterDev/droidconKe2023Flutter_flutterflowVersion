@@ -22,6 +22,8 @@ class OrganisedbyComponentModel extends FlutterFlowModel {
     organizedByPanelModel.dispose();
   }
 
+  /// Action blocks are added here.
+
   /// Additional helper methods are added here.
 
 }

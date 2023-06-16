@@ -85,9 +85,9 @@ class _FeedsCardsComponentWidgetState extends State<FeedsCardsComponentWidget> {
                       barrierColor: Color(0x00000000),
                       enableDrag: false,
                       context: context,
-                      builder: (bottomSheetContext) {
+                      builder: (context) {
                         return Padding(
-                          padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                          padding: MediaQuery.of(context).viewInsets,
                           child: Container(
                             height: 245.0,
                             child: ShareModalWidget(),

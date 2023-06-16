@@ -22,7 +22,6 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
   late AboutPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
@@ -36,7 +35,6 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
@@ -45,11 +43,12 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
         body: SafeArea(
+          top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
             child: SingleChildScrollView(
@@ -136,8 +135,6 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 3,
-                              crossAxisSpacing: 0.0,
-                              mainAxisSpacing: 0.0,
                               childAspectRatio: 0.8,
                             ),
                             primary: false,

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/src/modals/google_sign_in_dialog/google_sign_in_dialog_widget.dart';
 import '/src/widgets/organisedby_component/organisedby_component_widget.dart';
 import '/src/widgets/sponsors_component/sponsors_component_widget.dart';
+import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -22,7 +23,6 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
   late HomePageNoLoginModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
@@ -36,7 +36,6 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
@@ -45,11 +44,12 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
         body: SafeArea(
+          top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
             child: SingleChildScrollView(
@@ -73,32 +73,39 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                           color: FlutterFlowTheme.of(context).secondary,
                           shape: BoxShape.circle,
                         ),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            await showDialog(
-                              context: context,
-                              builder: (dialogContext) {
-                                return GestureDetector(
-                                  onTap: () => FocusScope.of(context)
-                                      .requestFocus(_unfocusNode),
-                                  child: Dialog(
-                                    insetPadding:
-                                        MediaQuery.of(dialogContext).viewInsets,
-                                    child: GoogleSignInDialogWidget(),
-                                  ),
-                                );
-                              },
-                            ).then((value) => setState(() {}));
-                          },
-                          child: Icon(
-                            Icons.lock,
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            size: 14.3,
+                        child: Builder(
+                          builder: (context) => InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await showAlignedDialog(
+                                context: context,
+                                isGlobal: true,
+                                avoidOverflow: false,
+                                targetAnchor: AlignmentDirectional(0.0, 0.0)
+                                    .resolve(Directionality.of(context)),
+                                followerAnchor: AlignmentDirectional(0.0, 0.0)
+                                    .resolve(Directionality.of(context)),
+                                builder: (dialogContext) {
+                                  return Material(
+                                    color: Colors.transparent,
+                                    child: GestureDetector(
+                                      onTap: () => FocusScope.of(context)
+                                          .requestFocus(_model.unfocusNode),
+                                      child: GoogleSignInDialogWidget(),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => setState(() {}));
+                            },
+                            child: Icon(
+                              Icons.lock,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: 14.3,
+                            ),
                           ),
                         ),
                       ),

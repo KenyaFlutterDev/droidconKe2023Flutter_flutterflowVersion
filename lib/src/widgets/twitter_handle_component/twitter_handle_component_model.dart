@@ -23,6 +23,8 @@ class TwitterHandleComponentModel extends FlutterFlowModel {
     outlinedIconButtonModel.dispose();
   }
 
+  /// Action blocks are added here.
+
   /// Additional helper methods are added here.
 
 }

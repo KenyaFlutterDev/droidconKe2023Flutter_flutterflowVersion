@@ -16,6 +16,7 @@ class SessionsPageModel extends FlutterFlowModel {
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for sesion_header_component component.
   late SesionHeaderComponentModel sesionHeaderComponentModel;
   // Model for session_date_component component.
@@ -41,11 +42,14 @@ class SessionsPageModel extends FlutterFlowModel {
   }
 
   void dispose() {
+    unfocusNode.dispose();
     sesionHeaderComponentModel.dispose();
     sessionDateComponentModel1.dispose();
     sessionDateComponentModel2.dispose();
     sessionDateComponentModel3.dispose();
   }
+
+  /// Action blocks are added here.
 
   /// Additional helper methods are added here.
 

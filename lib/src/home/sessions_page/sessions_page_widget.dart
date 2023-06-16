@@ -22,7 +22,6 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
   late SessionsPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
@@ -36,7 +35,6 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
@@ -45,11 +43,12 @@ class _SessionsPageWidgetState extends State<SessionsPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Color(0xFFF4F4F3),
         body: SafeArea(
+          top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
             child: Column(

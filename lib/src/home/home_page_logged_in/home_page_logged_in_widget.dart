@@ -26,7 +26,6 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
   late HomePageLoggedInModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
@@ -40,7 +39,6 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
@@ -49,11 +47,12 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
         body: SafeArea(
+          top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
             child: SingleChildScrollView(
@@ -69,11 +68,6 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                       child: HeaderComponentWidget(),
                     ),
                   ),
-                  SelectionArea(
-                      child: Text(
-                    FFAppState().appToken,
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                  )),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                     child: Container(

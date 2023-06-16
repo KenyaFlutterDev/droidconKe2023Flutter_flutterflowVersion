@@ -16,6 +16,7 @@ import 'package:provider/provider.dart';
 class HomePageLoggedInModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for header_component component.
   late HeaderComponentModel headerComponentModel;
   // Model for sessionsListComponent component.
@@ -40,11 +41,14 @@ class HomePageLoggedInModel extends FlutterFlowModel {
   }
 
   void dispose() {
+    unfocusNode.dispose();
     headerComponentModel.dispose();
     sessionsListComponentModel.dispose();
     sponsorsComponentModel.dispose();
     organisedbyComponentModel.dispose();
   }
+
+  /// Action blocks are added here.
 
   /// Additional helper methods are added here.
 

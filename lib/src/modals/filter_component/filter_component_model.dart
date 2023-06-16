@@ -13,12 +13,16 @@ class FilterComponentModel extends FlutterFlowModel {
   void addToTappedItem(String item) => tappedItem.add(item);
   void removeFromTappedItem(String item) => tappedItem.remove(item);
   void removeAtIndexFromTappedItem(int index) => tappedItem.removeAt(index);
+  void updateTappedItemAtIndex(int index, Function(String) updateFn) =>
+      tappedItem[index] = updateFn(tappedItem[index]);
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
 
   void dispose() {}
+
+  /// Action blocks are added here.
 
   /// Additional helper methods are added here.
 

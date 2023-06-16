@@ -11,6 +11,10 @@ import 'package:provider/provider.dart';
 class SessionDetailsPageModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
+  // State field(s) for TextField widget.
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
   // Model for twitter_handle_component component.
   late TwitterHandleComponentModel twitterHandleComponentModel;
 
@@ -22,8 +26,12 @@ class SessionDetailsPageModel extends FlutterFlowModel {
   }
 
   void dispose() {
+    unfocusNode.dispose();
+    textController?.dispose();
     twitterHandleComponentModel.dispose();
   }
+
+  /// Action blocks are added here.
 
   /// Additional helper methods are added here.
 
