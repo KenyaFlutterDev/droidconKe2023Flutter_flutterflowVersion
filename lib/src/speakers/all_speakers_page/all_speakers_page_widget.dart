@@ -131,11 +131,10 @@ class _AllSpeakersPageWidgetState extends State<AllSpeakersPageWidget> {
                       return Builder(
                         builder: (context) {
                           final allSpeakers = DroidConKeAPIGroup.speakersCall
-                                  .speakersData(
-                                    gridViewSpeakersResponse.jsonBody,
-                                  )
-                                  ?.toList() ??
-                              [];
+                              .speakersData(
+                                gridViewSpeakersResponse.jsonBody,
+                              )
+                              .toList();
                           if (allSpeakers.isEmpty) {
                             return Center(
                               child: Image.asset(

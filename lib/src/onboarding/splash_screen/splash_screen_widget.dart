@@ -51,29 +51,25 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: SafeArea(
-          top: true,
-          child: Align(
-            alignment: AlignmentDirectional(0.0, -0.2),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Align(
-                  alignment: AlignmentDirectional(0.0, -0.6),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(67.8, 0.0, 67.8, 0.0),
-                    child: Image.asset(
-                      'assets/images/Group_795.png',
-                      width: 276.1,
-                      height: 494.4,
-                      fit: BoxFit.fill,
-                    ),
+        body: Align(
+          alignment: AlignmentDirectional(0.0, -0.2),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Align(
+                alignment: AlignmentDirectional(0.0, -0.6),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(67.8, 0.0, 67.8, 0.0),
+                  child: Image.asset(
+                    'assets/images/Group_795.png',
+                    width: 276.1,
+                    height: 494.4,
+                    fit: BoxFit.fill,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

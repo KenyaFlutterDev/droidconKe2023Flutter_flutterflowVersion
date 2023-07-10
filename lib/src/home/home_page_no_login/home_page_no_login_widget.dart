@@ -118,7 +118,7 @@ class _HomePageNoLoginWidgetState extends State<HomePageNoLoginWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Text(
-                        'Welcome to the largest Focussed Android Developer community in Africa',
+                        'Welcome to the largest Focused Android Developer community in Africa',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),

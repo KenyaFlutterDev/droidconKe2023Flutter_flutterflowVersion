@@ -132,7 +132,7 @@ class _SesionHeaderComponentWidgetState
                       context: context,
                       builder: (context) {
                         return Padding(
-                          padding: MediaQuery.of(context).viewInsets,
+                          padding: MediaQuery.viewInsetsOf(context),
                           child: FilterComponentWidget(),
                         );
                       },

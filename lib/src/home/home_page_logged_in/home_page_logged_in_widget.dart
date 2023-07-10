@@ -306,9 +306,7 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                                         final textSpeakersResponse =
                                             snapshot.data!;
                                         return Text(
-                                          '+${(DroidConKeAPIGroup.speakersCall.speakersData(
-                                            textSpeakersResponse.jsonBody,
-                                          ) as List).map<String>((s) => s.toString()).toList().length.toString()}',
+                                          '+[1]',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -358,7 +356,7 @@ class _HomePageLoggedInWidgetState extends State<HomePageLoggedInWidget> {
                             final pageItems =
                                 (DroidConKeAPIGroup.speakersCall.speakersData(
                                           listViewSpeakersResponse.jsonBody,
-                                        )! ??
+                                        ) ??
                                         [])
                                     .toList() as List;
                             final newNumItems =

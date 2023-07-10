@@ -194,7 +194,6 @@ class SpeakersCall {
   dynamic speakersData(dynamic response) => getJsonField(
         response,
         r'''$.data''',
-        true,
       );
   dynamic speakerName(dynamic response) => getJsonField(
         response,
