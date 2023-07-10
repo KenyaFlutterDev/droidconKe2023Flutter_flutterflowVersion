@@ -87,7 +87,7 @@ class _FeedsCardsComponentWidgetState extends State<FeedsCardsComponentWidget> {
                       context: context,
                       builder: (context) {
                         return Padding(
-                          padding: MediaQuery.of(context).viewInsets,
+                          padding: MediaQuery.viewInsetsOf(context),
                           child: Container(
                             height: 245.0,
                             child: ShareModalWidget(),

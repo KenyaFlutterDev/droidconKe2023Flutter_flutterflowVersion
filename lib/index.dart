@@ -9,13 +9,13 @@ export '/src/home/feeds_page/feeds_page_widget.dart' show FeedsPageWidget;
 export '/src/home/about_page/about_page_widget.dart' show AboutPageWidget;
 export '/src/home/sessions_page/sessions_page_widget.dart'
     show SessionsPageWidget;
-export '/src/spekers/speaker_page/speaker_page_widget.dart'
+export '/src/speakers/speaker_page/speaker_page_widget.dart'
     show SpeakerPageWidget;
 export '/src/sessions/session_details_page/session_details_page_widget.dart'
     show SessionDetailsPageWidget;
 export '/src/feedback_page/feedback_page/feedback_page_widget.dart'
     show FeedbackPageWidget;
-export '/src/spekers/all_speakers_page/all_speakers_page_widget.dart'
+export '/src/speakers/all_speakers_page/all_speakers_page_widget.dart'
     show AllSpeakersPageWidget;
 export '/src/auth/reset_password_confirmation_page/reset_password_confirmation_page_widget.dart'
     show ResetPasswordConfirmationPageWidget;
